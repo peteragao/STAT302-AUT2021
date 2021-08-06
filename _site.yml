@@ -1,0 +1,12 @@
+name: "STAT302-AUT2021"
+title: "STAT 302"
+description: |
+  STAT 302
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+output: distill::distill_article
