@@ -3,10 +3,18 @@ title: "STAT 302"
 description: |
   STAT 302
 output_dir: "docs"
+
+theme: theme.css
 navbar:
   right:
-    - text: "Home"
-      href: index.html
-    - text: "About"
-      href: about.html
+    - text: "Syllabus"
+      href: syllabus.html
+    - text: "Lecture Slides"
+      href: slides.html
+    - text: "Labs"
+      href: labs.html
+    - text: "Short Labs"
+      href: short_labs.html
+    - text: "Projects"
+      href: projects.html
 output: distill::distill_article
