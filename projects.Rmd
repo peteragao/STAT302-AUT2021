@@ -1,10 +1,27 @@
 ---
 title: "Projects"
-description: |
-  Some additional details about the website
+description: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+# Project 1: Data Visualization
+
+![](https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png)
+
+*tentative due date: 10/27*
+
+# Project 2: Data Analysis
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Capitol_%28PSF%29.jpg/640px-Capitol_%28PSF%29.jpg)
+
+*tentative due date: 11/17*
+
+# Project 3: R Package Development 
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Cat_using_computer.jpg/640px-Cat_using_computer.jpg)
+
+*tentative due date: 12/13*
 

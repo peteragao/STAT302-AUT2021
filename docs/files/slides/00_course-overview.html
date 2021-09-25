@@ -1,63 +1,69 @@
----
-title: "STAT 302: Lecture 1"
-subtitle: "Introduction to R"
-author: "Bryan Martin"
-date: ""
-output:
-  xaringan::moon_reader:
-    css: ["default", "../gao-theme.css", "../gao-theme-fonts.css"]
-    nature:
-      highlightStyle: default
-      highlightLines: true
-      countIncrementalSlides: false
-      titleSlideClass: ["center"]
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>STAT 302: Lecture 1</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Peter Gao (adapted from slides by Bryan Martin)" />
+    <script src="00_course-overview_files/header-attrs/header-attrs.js"></script>
+    <link href="00_course-overview_files/remark-css/default.css" rel="stylesheet" />
+    <script src="00_course-overview_files/kePrint/kePrint.js"></script>
+    <link href="00_course-overview_files/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="gao-theme.css" type="text/css" />
+    <link rel="stylesheet" href="gao-theme-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, title-slide
+
+# STAT 302: Lecture 1
+## Introduction to R
+### Peter Gao (adapted from slides by Bryan Martin)
+
 ---
 
-```{r setup, include=FALSE, purl=FALSE}
-options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(comment = "##")
-library(kableExtra)
-```
+
+
 
 
 # Outline
 
 1. Course Overview
-2. Introduction to R, RStudio, and R Markdown
-3. Getting started with data
+2. Introductions
+3. What is R? What is statistical computing?
+4. Short Lab 0
 
-.middler[**Goal:** Create a functional R Markdown document utilizing basic R functionality (Short Lab 1)]
 
 ---
 
 # Syllabus
 
 .middler[.large[
-[Link to syllabus](https://bryandmartin.github.io/STAT302/syllabus.html)
+[Link to syllabus](https://peteragao.github.io/STAT302-AUT2021/syllabus.html)
 ]]
 ---
+# On being back in person
 
-# Expectations
 
-What you should expect from me...
-* your learning will be my priority
-* you will be treated like an adult and with respect
-* your feedback will be valued
-* timely feedback on assignments
-* understandable and well-paced lectures (tell me if they are not!)
-* an attempt at making statistical computation as fun for you as it is for me!
+---
+class: middle
+
+# Introductions
+
+* What should we call you?
+* One goal for the class
+* One goal for the school year
+
+
+---
+# Introductions
+
+* What should we call you?
+* One goal for the class
+* One goal for the school year
+
 
 ---
 
-# Expectations
-
-What I will expect from you...
-* regular attendance
-* timely assignments that represent your best work
-* a respectful and engaged classroom
-* a desire and effort to learn challenging material
-
----
 
 # Canvas Discussion
 
@@ -76,10 +82,10 @@ What I will expect from you...
 .pull-right[
 ### Good questions:
 * Here's a snippet of code I used for problem 2: 
-<br/>`formatted code snippet`
-<br/>It returned the following error:
-<br/>`formatted error message`
-<br/>Does anyone know why? I already tried...
+&lt;br/&gt;`formatted code snippet`
+&lt;br/&gt;It returned the following error:
+&lt;br/&gt;`formatted error message`
+&lt;br/&gt;Does anyone know why? I already tried...
 * I don't understand the concept from Slide 18 today. Could anyone elaborate on why...
 ]
 
@@ -156,62 +162,121 @@ class: inverse
 
 # Operators
 
-```{r}
+
+```r
 # Addition
 6 + 3
 ```
 
-```{r}
+```
+## [1] 9
+```
+
+
+```r
 # Subtraction
 6 - 3
 ```
 
-```{r}
+```
+## [1] 3
+```
+
+
+```r
 # Multiplication
 6 * 3
 ```
 
-```{r}
+```
+## [1] 18
+```
+
+
+```r
 # Division
 6 / 3
 ```
 
+```
+## [1] 2
+```
+
 
 ---
 
 
 # Comparison Operators
 
-```{r}
+
+```r
 # Greater than
-6 > 3
+6 &gt; 3
 ```
 
-```{r}
+```
+## [1] TRUE
+```
+
+
+```r
 # Less than
-6 < 3
+6 &lt; 3
 ```
 
-```{r}
+```
+## [1] FALSE
+```
+
+
+```r
 # Equal to
 6 == 3
+```
+
+```
+## [1] FALSE
+```
+
+```r
 6 == 3 + 3
 ```
 
+```
+## [1] TRUE
+```
+
 
 ---
 
 # Comparison Operators
 
-```{r}
+
+```r
 # Not equal to
 6 != 3
 ```
 
-```{r}
-6 < 6
+```
+## [1] TRUE
+```
+
+
+```r
+6 &lt; 6
+```
+
+```
+## [1] FALSE
+```
+
+```r
 # Less than or equal to
-6 <= 6
+6 &lt;= 6
+```
+
+```
+## [1] TRUE
 ```
 
 
@@ -219,69 +284,73 @@ class: inverse
 
 # Logical Operators
 
-```{r, eval = FALSE}
+
+```r
 # and
-(6 < 3) & (1 < 3)
+(6 &lt; 3) &amp; (1 &lt; 3)
 ```
 
 
 --
 
 
-```{r, echo = FALSE}
-# and
-(6 < 3) & (1 < 3)
+
 ```
-
-
---
-
-```{r, eval = FALSE}
-# and
-(2 < 3) & (1 < 3)
+## [1] FALSE
 ```
 
 
 --
 
 
-```{r, echo = FALSE}
+```r
 # and
-(2 < 3) & (1 < 3)
+(2 &lt; 3) &amp; (1 &lt; 3)
 ```
 
 
 --
 
-```{r, eval = FALSE}
+
+
+```
+## [1] TRUE
+```
+
+
+--
+
+
+```r
 # or
-(6 < 3) | (1 < 3)
+(6 &lt; 3) | (1 &lt; 3)
 ```
 
 
 --
 
 
-```{r, echo = FALSE}
-# or
-(6 < 3) | (1 < 3)
+
+```
+## [1] TRUE
 ```
 
 
 --
 
-```{r, eval = FALSE}
+
+```r
 # a bit harder...
-(6 < 3) | (1 < 3) & (6 < 3)
+(6 &lt; 3) | (1 &lt; 3) &amp; (6 &lt; 3)
 ```
 
 
 --
 
 
-```{r, echo = FALSE}
-# a bit harder...
-(6 < 3) | (1 < 3) & (6 < 3)
+
+```
+## [1] FALSE
 ```
 
 
@@ -289,23 +358,37 @@ class: inverse
 
 # Object Types
 
-```{r}
+
+```r
 class(7)
+```
+
+```
+## [1] "numeric"
+```
+
+```r
 class("7")
+```
+
+```
+## [1] "character"
+```
+
+```r
 is.numeric(7)
+```
+
+```
+## [1] TRUE
+```
+
+```r
 is.numeric("7")
 ```
 
-
----
-
-# Object Types
-
-```{r}
-is.character(7)
-is.character("7")
-is.na(7)
-is.na(0/0)
+```
+## [1] FALSE
 ```
 
 
@@ -313,11 +396,75 @@ is.na(0/0)
 
 # Object Types
 
-```{r, error = TRUE}
+
+```r
+is.character(7)
+```
+
+```
+## [1] FALSE
+```
+
+```r
+is.character("7")
+```
+
+```
+## [1] TRUE
+```
+
+```r
+is.na(7)
+```
+
+```
+## [1] FALSE
+```
+
+```r
+is.na(0/0)
+```
+
+```
+## [1] TRUE
+```
+
+
+---
+
+# Object Types
+
+
+```r
 as.character(7)
+```
+
+```
+## [1] "7"
+```
+
+```r
 as.numeric("7")
+```
+
+```
+## [1] 7
+```
+
+```r
 as.numeric("7") + 3 == 10
+```
+
+```
+## [1] TRUE
+```
+
+```r
 "7" + 3 == 10
+```
+
+```
+## Error in "7" + 3: non-numeric argument to binary operator
 ```
 
 
@@ -325,28 +472,47 @@ as.numeric("7") + 3 == 10
 
 # Assigning Variables
 
-```{r}
-x <- 7
+
+```r
+x &lt;- 7
 x
+```
+
+```
+## [1] 7
+```
+
+```r
 x + 3
+```
+
+```
+## [1] 10
+```
+
+```r
 x == 7
+```
+
+```
+## [1] TRUE
+```
+
+```r
 as.character(x)
-y <- 3
+```
+
+```
+## [1] "7"
+```
+
+```r
+y &lt;- 3
 x + y
 ```
 
-
----
-
-# Workspaces
-
-```{r, error = TRUE}
-# List all defined objects
-ls()
-# Remove an object
-rm("x")
-ls()
-x
+```
+## [1] 10
 ```
 
 
@@ -354,12 +520,57 @@ x
 
 # Workspaces
 
-```{r}
-x <- 7
+
+```r
+# List all defined objects
 ls()
+```
+
+```
+## [1] "x" "y"
+```
+
+```r
+# Remove an object
+rm("x")
+ls()
+```
+
+```
+## [1] "y"
+```
+
+```r
+x
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'x' not found
+```
+
+
+---
+
+# Workspaces
+
+
+```r
+x &lt;- 7
+ls()
+```
+
+```
+## [1] "x" "y"
+```
+
+```r
 # Use with caution! This erases everything!
 rm(list = ls())
 ls()
+```
+
+```
+## character(0)
 ```
 
 ---
@@ -387,29 +598,30 @@ layout:true
 
 ---
 
-```{r}
+
+```r
 #' Wald-type t test
 #' @param mod an object of class \code{bbdml}
 #' @return Matrix with wald test statistics and p-values. Univariate tests only.
-waldt <- function(mod) {
+waldt &lt;- function(mod) {
   # Covariance matrix
-  covMat <- try(chol2inv(chol(hessian(mod))), silent = TRUE)
+  covMat &lt;- try(chol2inv(chol(hessian(mod))), silent = TRUE)
   if (class(covMat) == "try-error") {
     warning("Singular Hessian! Cannot calculate p-values in this setting.")
-    np <- length(mod$param)
-    se <- tvalue <- pvalue <- rep(NA, np)
+    np &lt;- length(mod$param)
+    se &lt;- tvalue &lt;- pvalue &lt;- rep(NA, np)
   } else {
     # Standard errors
-    se <- sqrt(diag(covMat))
+    se &lt;- sqrt(diag(covMat))
     # test statistic
-    tvalue <- mod$param/se
+    tvalue &lt;- mod$param/se
     # P-value
-    pvalue <- 2*stats::pt(-abs(tvalue), mod$df.residual)
+    pvalue &lt;- 2*stats::pt(-abs(tvalue), mod$df.residual)
   }
   # make table
-  coef.table <- cbind(mod$param, se, tvalue, pvalue)
-  dimnames(coef.table) <- list(names(mod$param),
-                               c("Estimate", "Std. Error", "t value", "Pr(>|t|)"))
+  coef.table &lt;- cbind(mod$param, se, tvalue, pvalue)
+  dimnames(coef.table) &lt;- list(names(mod$param),
+                               c("Estimate", "Std. Error", "t value", "Pr(&gt;|t|)"))
   return(coef.table)
 }
 ```
@@ -436,22 +648,23 @@ readability
 * Here's a snippet of a long mathematical function I wrote (lots code emitted with ellipses for space).
 * In order to help myself read through it later, I divided the function into major steps marked by easily visible comments I can see when scanning through
 
-```{r, eval = FALSE}
-objfun <- function(theta, W, M, X, X_star, np, npstar, link, phi.link) {
+
+```r
+objfun &lt;- function(theta, W, M, X, X_star, np, npstar, link, phi.link) {
 
   ### STEP 1 - Negative Log-likelihood
 
   # extract matrix of betas (np x 1), first np entries
-  b      <- utils::head(theta, np)
+  b      &lt;- utils::head(theta, np)
   # extract matrix of beta stars (npstar x 1), last npstar entries
-  b_star <- utils::tail(theta, npstar)
+  b_star &lt;- utils::tail(theta, npstar)
 
   ...
 
   ### STEP 2 - Gradient
 
   # define gam
-  gam <- phi/(1 - phi)
+  gam &lt;- phi/(1 - phi)
 ```
 
 ---
@@ -459,7 +672,7 @@ objfun <- function(theta, W, M, X, X_star, np, npstar, link, phi.link) {
 ## A final plea
 
 * Being a successful programmer *requires* commenting your code
-* Want to understand code you wrote >24 hours ago without comments?
+* Want to understand code you wrote &gt;24 hours ago without comments?
 
 --
 .center[![David](davidsmall.gif)]
@@ -484,7 +697,7 @@ By default...
 
 * *Top left*: Editor pane. Browse and edit scripts and data with tabs
 * *Top right*: List of objects in your Environment (recall `ls()`), code History
-* *Bottom left*: Console for running R code line-by-line (`>` prompt)
+* *Bottom left*: Console for running R code line-by-line (`&gt;` prompt)
 * *Bottom right*: Files, plots, packages, help files
 
 ---
@@ -498,7 +711,7 @@ By default...
  
   
   
-* Try opening a file now using *File > New File > R Script*, write two lines of simple code
+* Try opening a file now using *File &gt; New File &gt; R Script*, write two lines of simple code
 * Click `Run` in the bar above your script. What happens?
 * Click on one of the lines of code. Press `Ctrl`/`⌘` + `Enter`. What happens?
 
@@ -508,7 +721,7 @@ By default...
 
 ---
 layout: true
-# Environment & History
+# Environment &amp; History
 
 * If you didn't already, define a variable in your R Script and run it
 * What happens in your Environment tab?
@@ -558,8 +771,9 @@ Your workflow should always be **reproducible!**
 
 What if we start a command, but do not finish it?
 
-```{r, eval = FALSE}
-> 5 -
+
+```r
+&gt; 5 -
 + 
 ```
 
@@ -651,8 +865,8 @@ Easier to start with best practice rather than fix things later!
 
 --
 1. Somewhere on your computer, create the folder `STAT302`
-2. Within that folder, create the subfolders `short_labs`<sup>1</sup>, `labs`, `projects`
-3. Within your Short Labs folder, create a subfolder `short_lab_1`<sup>2</sup>
+2. Within that folder, create the subfolders `short_labs`&lt;sup&gt;1&lt;/sup&gt;, `labs`, `projects`
+3. Within your Short Labs folder, create a subfolder `short_lab_1`&lt;sup&gt;2&lt;/sup&gt;
 4. Put your both of short lab files from Monday into that folder
 5. Within your Labs folder, create a folder for Lab 1 that follows the filename guide
 
@@ -681,7 +895,7 @@ layout: true
 
 Let's try making an R Markdown file:
 
-1. Choose *File > New File > R Markdown...*
+1. Choose *File &gt; New File &gt; R Markdown...*
 2. Make sure *HTML Output* is selected and click OK
 3. Save the file in your new folder, call it `stat302_Lab1.Rmd`
   * *Hint:* Follow along, because this will become your Lab 1 submission!
@@ -729,7 +943,7 @@ Congrats! You have a functional .Rmd that will soon be your Lab 1 submissions!
 .pull-right[
 ## Syntax
 
-<pre>
+&lt;pre&gt;
 **bold/strong emphasis**
 
 *italic/normal emphasis*
@@ -741,7 +955,7 @@ Congrats! You have a functional .Rmd that will soon be your Lab 1 submissions!
 
 ### Subsubheader
 
-</pre>
+&lt;/pre&gt;
 ]
 
 ---
@@ -767,8 +981,8 @@ Congrats! You have a functional .Rmd that will soon be your Lab 1 submissions!
 
 ## Syntax
 
-<div style="width:400px;overflow:auto">
-<pre>
+&lt;div style="width:400px;overflow:auto"&gt;
+&lt;pre&gt;
 1. Ordered lists
 1. Are real easy
   1. Even with sublists
@@ -781,8 +995,8 @@ Congrats! You have a functional .Rmd that will soon be your Lab 1 submissions!
 [URLs are trivial](http://www.uw.edu)
 
 ![pictures too](http://depts.washington.edu/uwcreate/img/UW_W-Logo_smallRGB.gif)
-</div>
-</pre>
+&lt;/div&gt;
+&lt;/pre&gt;
 ]
 
 ---
@@ -790,11 +1004,11 @@ Congrats! You have a functional .Rmd that will soon be your Lab 1 submissions!
 .pull-left[
 ## Output 
 
-You can put some math $y= \left( \frac{2}{3} \right)^2$ right up in there.
+You can put some math `\(y= \left( \frac{2}{3} \right)^2\)` right up in there.
 
 
 
-$$\frac{1}{n} \sum_{i=1}^{n} x_i = \bar{x}_n$$
+`$$\frac{1}{n} \sum_{i=1}^{n} x_i = \bar{x}_n$$`
 
 Or a sentence with `code-looking font`.
 
@@ -802,8 +1016,8 @@ Or a sentence with `code-looking font`.
 Or a block of code:
 
 ```
-y <- 1:5
-z <- y^2
+y &lt;- 1:5
+z &lt;- y^2
 ```
 ]
 
@@ -811,25 +1025,25 @@ z <- y^2
 
 ## Syntax
 
-<div style="width:400px;overflow:auto">
-<pre>
+&lt;div style="width:400px;overflow:auto"&gt;
+&lt;pre&gt;
 You can put some math $y= \left(\frac{2}{3} 
 \right)^2$ right up in there
 
-$$\frac{1}{n} \sum_{i=1}^{n}
-x_i = \bar{x}_n$$
+`$$\frac{1}{n} \sum_{i=1}^{n}
+x_i = \bar{x}_n$$`
 
 Or a sentence with `code-looking font`.
 
 Or a block of code:
 
     ```
-    y <- 1:5
-    z <- y^2
+    y &lt;- 1:5
+    z &lt;- y^2
     ```
-</pre>
+&lt;/pre&gt;
 ]
-</div>
+&lt;/div&gt;
 
 ---
 
@@ -847,7 +1061,7 @@ As you saw in Short Lab 1, we can run and execute R code within R Markdown.
 To do so encase your code as follows.
 
 
-    `r ''````{r, eval = TRUE, echo = TRUE}
+    ```{r, eval = TRUE, echo = TRUE}
     # Your code goes here!
     ```
 
@@ -873,21 +1087,20 @@ Parameters go into the opening brackets `{r}` and are separated by commas. Here 
 
 ## In-Line R Code
 
-```{r, echo=FALSE}
-library(knitr)
-```
+
 
 You can also include and execute R code directly in the text of your .Rmd!
 For example, say we define a variable
-```{r}
-x <- 7
+
+```r
+x &lt;- 7
 ```
 If I want to reference this variable in text, I can do so directly by writing using ticks and starting with r. So if I type:
 
-    The variable I want to reference is `r inline_expr("x", "md")`.
+    The variable I want to reference is `r x`.
 what will appear is:
 
-The variable I want to reference is `r x`.
+The variable I want to reference is 7.
 
 ---
 
@@ -912,14 +1125,24 @@ layout: true
 * A **vector** is a set of values of the same type
 * We create vectors using the function `c()`
 
-```{r}
+
+```r
 c(16, 3, 0, 7, -2)
+```
+
+```
+## [1] 16  3  0  7 -2
 ```
 
 * We can shorthand vectors counting up (or down) using `:`
 
-```{r}
+
+```r
 1:5
+```
+
+```
+## [1] 1 2 3 4 5
 ```
 
 
@@ -927,28 +1150,57 @@ c(16, 3, 0, 7, -2)
 
 * We can also generate vectors using functions such as `rep()` and `seq()`
 
-```{r}
+
+```r
 # Sequence from 1 to 20, incrementing by 5
 seq(1, 20, by = 5)
+```
+
+```
+## [1]  1  6 11 16
+```
+
+```r
 # Repeat each element of a vector 3 times each
 rep(c(1, 2), each = 3)
+```
+
+```
+## [1] 1 1 1 2 2 2
+```
+
+```r
 # Repeat an entire vector 3 times
 rep(c(1, 2), 3)
+```
+
+```
+## [1] 1 2 1 2 1 2
 ```
 
 ---
 
 * We index vectors using `[index]` after the vector name
 
-```{r}
-x <- 1:5
+
+```r
+x &lt;- 1:5
 x[3]
+```
+
+```
+## [1] 3
 ```
 
 * If we use a negative index, we return the vector with that element removed
 
-```{r}
+
+```r
 x[-4]
+```
+
+```
+## [1] 1 2 3 5
 ```
 
 ---
@@ -957,11 +1209,30 @@ x[-4]
 
 **Vectorization**, or applying functions across vectors/arrays, is one of R's most powerful capabilities 
 
-```{r}
-y <- -5:-1
+
+```r
+y &lt;- -5:-1
 y
+```
+
+```
+## [1] -5 -4 -3 -2 -1
+```
+
+```r
 x + y
+```
+
+```
+## [1] -4 -2  0  2  4
+```
+
+```r
 x * y
+```
+
+```
+## [1] -5 -8 -9 -8 -5
 ```
 
 ---
@@ -970,21 +1241,76 @@ Be careful! R **recycles**, repeating elements of shorter vectors to match longe
 This is incredibly useful when done on purpose, 
 but can also easily lead to hard-to-catch bugs in your code!
 
-```{r}
+
+```r
 2 * x
+```
+
+```
+## [1]  2  4  6  8 10
+```
+
+```r
 c(1, -1) * x
+```
+
+```
+## Warning in c(1, -1) * x: longer object length is not a multiple of shorter
+## object length
+```
+
+```
+## [1]  1 -2  3 -4  5
+```
+
+```r
 c(1, -1) + x
+```
+
+```
+## Warning in c(1, -1) + x: longer object length is not a multiple of shorter
+## object length
+```
+
+```
+## [1] 2 1 4 3 6
 ```
 
 ---
 
 We can apply many functions component-wise to vectors, including comparison operators.
 
-```{r}
-x >= 3
-y < -2
-(x >= 3) & (y < -2)
+
+```r
+x &gt;= 3
+```
+
+```
+## [1] FALSE FALSE  TRUE  TRUE  TRUE
+```
+
+```r
+y &lt; -2
+```
+
+```
+## [1]  TRUE  TRUE  TRUE FALSE FALSE
+```
+
+```r
+(x &gt;= 3) &amp; (y &lt; -2)
+```
+
+```
+## [1] FALSE FALSE  TRUE FALSE FALSE
+```
+
+```r
 x == c(1, 3, 2, 4, 5)
+```
+
+```
+## [1]  TRUE FALSE FALSE  TRUE  TRUE
 ```
 
 ---
@@ -995,16 +1321,17 @@ In code, entries that are `TRUE` or `FALSE` are called **booleans**.
 These are incredibly important, because they can be used to give your computer conditions.
 What will the following code do?
 
-```{r, eval = FALSE}
-x[x > 3] <- 3
+
+```r
+x[x &gt; 3] &lt;- 3
 x
 ```
 
 
 --
-```{r, echo = FALSE}
-x[x > 3] <- 3
-x
+
+```
+## [1] 1 2 3 3 3
 ```
 
 
@@ -1014,30 +1341,32 @@ x
 
 We can also do basic arithmetic with booleans. `TRUE` is encoded as `1` and `FALSE` is encoded as `0`.
 
-```{r, eval = FALSE}
+
+```r
 # First reset x
-x <- 1:5
-sum(x >= 3)
+x &lt;- 1:5
+sum(x &gt;= 3)
 ```
 
 
 --
-```{r, echo = FALSE}
-# First reset x
-x <- 1:5
-sum(x >= 3)
+
+```
+## [1] 3
 ```
 
 
 --
-```{r, eval = FALSE}
-mean(x >= 3)
+
+```r
+mean(x &gt;= 3)
 ```
 
 
 --
-```{r, echo = FALSE}
-mean(x >= 3)
+
+```
+## [1] 0.6
 ```
 
 --
@@ -1052,23 +1381,54 @@ By taking the mean, we are looking at the **proportion** of our vector that is `
 
 We can also get more complicated with our indexing.
 
-```{r}
+
+```r
 # Return the second and third elements of 
 y[c(2, 3)]
+```
+
+```
+## [1] -4 -3
+```
+
+```r
 # Return the values of x greater than 3
-x[x >= 3]
+x[x &gt;= 3]
+```
+
+```
+## [1] 3 4 5
+```
+
+```r
 # Values of x that match the index of the values of y that are less than -2
-x[y < -2]
+x[y &lt; -2]
+```
+
+```
+## [1] 1 2 3
+```
+
+```r
 # which() returns the index of entries that are TRUE
-which(y < -2)
+which(y &lt; -2)
+```
+
+```
+## [1] 1 2 3
 ```
 
 ---
 
 We can compare entire vectors using `identical()`
 
-```{r}
+
+```r
 identical(x, -rev(y))
+```
+
+```
+## [1] TRUE
 ```
 
 What do you think the function `rev()` is doing in the code above?
@@ -1081,14 +1441,31 @@ What do you think the function `rev()` is doing in the code above?
 
 Note that vectors can only have one type of data. So we can do
 
-```{r}
+
+```r
 c(1, 2, 3)
+```
+
+```
+## [1] 1 2 3
+```
+
+```r
 c("a", "b", "c")
+```
+
+```
+## [1] "a" "b" "c"
 ```
 but when we try
 
-```{r}
+
+```r
 c(1, "b", 3)
+```
+
+```
+## [1] "1" "b" "3"
 ```
 R will force the entries vector to be of the same type! This is a common source of bugs.
 
@@ -1100,17 +1477,36 @@ R will force the entries vector to be of the same type! This is a common source 
 We can assign names to the entries of our vectors using `names()`. This can be useful to label our data.
 Note that arithmetic doesn't change the names of our elements. 
 
-```{r}
-my_vec <- c(1, 2, 3)
-names(my_vec) <- c("a", "b", "c")
+
+```r
+my_vec &lt;- c(1, 2, 3)
+names(my_vec) &lt;- c("a", "b", "c")
 my_vec
+```
+
+```
+## a b c 
+## 1 2 3
+```
+
+```r
 my_vec + 1
+```
+
+```
+## a b c 
+## 2 3 4
 ```
 
 We can then access the names as their own vector by calling `names()` again.
 
-```{r}
+
+```r
 names(my_vec)
+```
+
+```
+## [1] "a" "b" "c"
 ```
 
 
@@ -1141,12 +1537,28 @@ layout: true
 they have **rows** and **columns**
 * We can create a matrix using the function `matrix()`
 
-```{r}
-my_matrix <- matrix(c(x, y), nrow = 2, ncol = 5, byrow = TRUE)
+
+```r
+my_matrix &lt;- matrix(c(x, y), nrow = 2, ncol = 5, byrow = TRUE)
 my_matrix
+```
+
+```
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5
+## [2,]   -5   -4   -3   -2   -1
+```
+
+```r
 # Note: byrow = FALSE is the default
-my_matrix2 <- matrix(c(x, y), nrow = 2, ncol = 5)
+my_matrix2 &lt;- matrix(c(x, y), nrow = 2, ncol = 5)
 my_matrix2
+```
+
+```
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    3    5   -4   -2
+## [2,]    2    4   -5   -3   -1
 ```
 
 .center[*Warning:* be careful not to call your matrix `matrix`! Why not?]
@@ -1155,9 +1567,28 @@ my_matrix2
 
 We can also generate matrices by column binding (`cbind()`) and row binding (`rbind()`) vectors
 
-```{r}
+
+```r
 cbind(x, y)
+```
+
+```
+##      x  y
+## [1,] 1 -5
+## [2,] 2 -4
+## [3,] 3 -3
+## [4,] 4 -2
+## [5,] 5 -1
+```
+
+```r
 rbind(x, y)
+```
+
+```
+##   [,1] [,2] [,3] [,4] [,5]
+## x    1    2    3    4    5
+## y   -5   -4   -3   -2   -1
 ```
 
 ---
@@ -1166,53 +1597,111 @@ rbind(x, y)
 
 Indexing a matrix is similar to indexing a vector, except we must index both the row and column, in that order.
 
-```{r}
+
+```r
 my_matrix
 ```
 
-```{r, eval = FALSE}
+```
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5
+## [2,]   -5   -4   -3   -2   -1
+```
+
+
+```r
 my_matrix[2, 3]
 ```
 
 --
-```{r, echo = FALSE}
-my_matrix[2, 3]
+
+```
+## [1] -3
 ```
 
 --
-```{r, eval = FALSE}
+
+```r
 my_matrix[2, c(1, 3, 5)]
 ```
 
 --
-```{r, echo = FALSE}
-my_matrix[2, c(1, 3, 5)]
+
+```
+## [1] -5 -3 -1
 ```
 
 ---
 
 Also similarly to vectors, we can subset using a negative index.
 
-```{r}
+
+```r
 my_matrix
+```
+
+```
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5
+## [2,]   -5   -4   -3   -2   -1
+```
+
+```r
 my_matrix[-2, -4]
+```
+
+```
+## [1] 1 2 3 5
+```
+
+```r
 # Note: Leaving an index blank includes all indices
 my_matrix[, -c(1, 3, 4, 5)]
 ```
 
+```
+## [1]  2 -4
+```
+
 ---
 
-```{r}
+
+```r
 my_matrix[, -c(1, 3, 4, 5)]
+```
+
+```
+## [1]  2 -4
+```
+
+```r
 is.matrix(my_matrix[, -c(1, 3, 4, 5)])
+```
+
+```
+## [1] FALSE
 ```
 
 What happened here? When subsetting a matrix reduces one dimension to length 1,
 R automatically coerces it into a vector. We can prevent this by including `drop = FALSE`.
 
-```{r}
+
+```r
 my_matrix[, -c(1, 3, 4, 5), drop = FALSE]
+```
+
+```
+##      [,1]
+## [1,]    2
+## [2,]   -4
+```
+
+```r
 is.matrix(my_matrix[, -c(1, 3, 4, 5), drop = FALSE])
+```
+
+```
+## [1] TRUE
 ```
 
 ---
@@ -1222,9 +1711,17 @@ is.matrix(my_matrix[, -c(1, 3, 4, 5), drop = FALSE])
 We can fill in a matrix using indices. This is commonly done in statistical computing.
 In R, you should always start by initializing an empty matrix of the right size.
 
-```{r}
-my_results <- matrix(NA, nrow = 3, ncol = 3)
+
+```r
+my_results &lt;- matrix(NA, nrow = 3, ncol = 3)
 my_results
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]   NA   NA   NA
+## [2,]   NA   NA   NA
+## [3,]   NA   NA   NA
 ```
 
 
@@ -1233,16 +1730,32 @@ my_results
 
 Then I can replace a single row (or column) using indices as follows.
 
-```{r}
-my_results[2, ] <- c(2, 4, 3)
+
+```r
+my_results[2, ] &lt;- c(2, 4, 3)
 my_results
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]   NA   NA   NA
+## [2,]    2    4    3
+## [3,]   NA   NA   NA
 ```
 
 We can also fill in multiple rows (or columns) at once. (Likewise, we can also do subsets of  rows/columns, or unique entries). Note that **recycling** applies here.
 
-```{r}
-my_results[c(1, 3), ] <- 7
+
+```r
+my_results[c(1, 3), ] &lt;- 7
 my_results
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]    7    7    7
+## [2,]    2    4    3
+## [3,]    7    7    7
 ```
 
 ---
@@ -1251,8 +1764,15 @@ my_results
 
 Matrices, like vectors, can only have entries of one type. 
 
-```{r}
+
+```r
 rbind(c(1, 2, 3), c("a", "b", "c"))
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,] "1"  "2"  "3" 
+## [2,] "a"  "b"  "c"
 ```
 
 
@@ -1262,50 +1782,102 @@ rbind(c(1, 2, 3), c("a", "b", "c"))
 
 Let's create 3 matrices for the purposes of demonstrating matrix functions.
 
-```{r}
-mat1 <- matrix(1:6, nrow = 2, ncol = 3, byrow = TRUE)
+
+```r
+mat1 &lt;- matrix(1:6, nrow = 2, ncol = 3, byrow = TRUE)
 mat1
-mat2 <- matrix(1:6, nrow = 3, ncol = 2)
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+```
+
+```r
+mat2 &lt;- matrix(1:6, nrow = 3, ncol = 2)
 mat2
+```
+
+```
+##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6
 ```
 
 
 ---
 
 
-```{r}
-mat3 <- matrix(5:10, nrow = 2, ncol = 3, byrow = TRUE)
+
+```r
+mat3 &lt;- matrix(5:10, nrow = 2, ncol = 3, byrow = TRUE)
 mat3
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]    5    6    7
+## [2,]    8    9   10
 ```
 
 ---
 
 ### Matrix Sums `+`
 
-```{r}
+
+```r
 mat1 + mat3
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]    6    8   10
+## [2,]   12   14   16
 ```
 
 ### Element-wise Matrix Multiplication `*`
 
-```{r}
+
+```r
 mat1 * mat3
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]    5   12   21
+## [2,]   32   45   60
 ```
 
 ---
 
 ### Matrix Multiplication `%*%`
 
-```{r}
-mat_square <- mat1 %*% mat2
+
+```r
+mat_square &lt;- mat1 %*% mat2
 mat_square
+```
+
+```
+##      [,1] [,2]
+## [1,]   14   32
+## [2,]   32   77
 ```
 
 
 ### Column Bind Matrices `cbind()`
 
-```{r}
+
+```r
 cbind(mat1, mat3)
+```
+
+```
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    2    3    5    6    7
+## [2,]    4    5    6    8    9   10
 ```
 
 
@@ -1314,21 +1886,39 @@ cbind(mat1, mat3)
 
 ### Transpose `t()`
 
-```{r}
+
+```r
 t(mat1)
+```
+
+```
+##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6
 ```
 
 
 ### Column Sums `colSums()`
 
-```{r}
+
+```r
 colSums(mat1)
+```
+
+```
+## [1] 5 7 9
 ```
 
 ### Row Sums `rowSums()`
 
-```{r}
+
+```r
 rowSums(mat1)
+```
+
+```
+## [1]  6 15
 ```
 
 
@@ -1337,20 +1927,35 @@ rowSums(mat1)
 
 ### Column Means `colMeans()`
 
-```{r}
+
+```r
 colMeans(mat1)
+```
+
+```
+## [1] 2.5 3.5 4.5
 ```
 
 ### Row Means `rowMeans()`
 
-```{r}
+
+```r
 rowMeans(mat1)
+```
+
+```
+## [1] 2 5
 ```
 
 ### Dimensions `dim()`
 
-```{r}
+
+```r
 dim(mat1)
+```
+
+```
+## [1] 2 3
 ```
 
 
@@ -1359,20 +1964,37 @@ dim(mat1)
 
 ### Determinent `det()`
 
-```{r}
+
+```r
 det(mat_square)
+```
+
+```
+## [1] 54
 ```
 
 ### Matrix Inverse `solve()`
 
-```{r}
+
+```r
 solve(mat_square)
+```
+
+```
+##            [,1]       [,2]
+## [1,]  1.4259259 -0.5925926
+## [2,] -0.5925926  0.2592593
 ```
 
 ### Matrix Diagonal `diag()`
 
-```{r}
+
+```r
 diag(mat_square)
+```
+
+```
+## [1] 14 77
 ```
 
 
@@ -1382,28 +2004,30 @@ diag(mat_square)
 
 `diag()` can also be used to generate diagonal matrices by supplying a vector
 
-```{r}
+
+```r
 diag(c(1, 2, 3))
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]    1    0    0
+## [2,]    0    2    0
+## [3,]    0    0    3
 ```
 
 Supplying an integer will produce an identity matrix of that dimension
 
-```{r}
+
+```r
 diag(3)
 ```
 
----
-
-## Names
-
-We can assign names to the rows and columns, using `rownames()` and `colnames()`, respectively.
-Similarly to `names()` for vectors, we then access them by calling the function again.
-
-```{r}
-colnames(mat1) <- c("var1", "var2", "var3")
-rownames(mat1) <- c("sample1", "sample2")
-mat1
-mat1 * 2
+```
+##      [,1] [,2] [,3]
+## [1,]    1    0    0
+## [2,]    0    1    0
+## [3,]    0    0    1
 ```
 
 ---
@@ -1413,9 +2037,51 @@ mat1 * 2
 We can assign names to the rows and columns, using `rownames()` and `colnames()`, respectively.
 Similarly to `names()` for vectors, we then access them by calling the function again.
 
-```{r}
+
+```r
+colnames(mat1) &lt;- c("var1", "var2", "var3")
+rownames(mat1) &lt;- c("sample1", "sample2")
+mat1
+```
+
+```
+##         var1 var2 var3
+## sample1    1    2    3
+## sample2    4    5    6
+```
+
+```r
+mat1 * 2
+```
+
+```
+##         var1 var2 var3
+## sample1    2    4    6
+## sample2    8   10   12
+```
+
+---
+
+## Names
+
+We can assign names to the rows and columns, using `rownames()` and `colnames()`, respectively.
+Similarly to `names()` for vectors, we then access them by calling the function again.
+
+
+```r
 rownames(mat1)
+```
+
+```
+## [1] "sample1" "sample2"
+```
+
+```r
 colnames(mat1)
+```
+
+```
+## [1] "var1" "var2" "var3"
 ```
 
 
@@ -1425,16 +2091,43 @@ colnames(mat1)
 
 It is easy to go from matrices to tables using R Markdown. There are several methods (check the cheatsheet link and Google for alternatives). I will present one easy method here, but what you use is up to you!
 
-```{r, eval = FALSE}
+
+```r
 # We need to load the knitr and kableExtra package
 library(knitr)
 library(kableExtra)
 ```
 
-```{r}
-my_tab <- data.frame(mat1)
+
+```r
+my_tab &lt;- data.frame(mat1)
 kable_styling(kable(mat1))
 ```
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; var1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; var2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; var3 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sample1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sample2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 What happened with the row and column names?
 
@@ -1465,7 +2158,8 @@ You will be graded on following good code style!
 Use either underscores (`_`) or big camel case (`BigCamelCase`) to separate words within an object name.
 Do not use dots `.` to separate words in R functions!
 
-```{r, eval = FALSE}
+
+```r
 # Good
 day_one
 day_1
@@ -1481,7 +2175,8 @@ dayone
 
 Names should be concise, meaningful, and (generally) nouns.
 
-```{r, eval = FALSE}
+
+```r
 # Good
 day_one
 
@@ -1497,12 +2192,13 @@ djm1
 
 It is *very* important that object names do not write over common functions!
 
-```{r, eval = FALSE}
+
+```r
 # Very extra super bad
-c <- 7
-t <- 23
-T <- FALSE
-mean <- "something"
+c &lt;- 7
+t &lt;- 23
+T &lt;- FALSE
+mean &lt;- "something"
 ```
 
 Note: `T` and `F` are R shorthand for `TRUE` and `FALSE`, respectively. In general, spell them 
@@ -1514,7 +2210,8 @@ out to be as clear as possible.
 
 Put a space after every comma, just like in English writing.
 
-```{r, eval = FALSE}
+
+```r
 # Good
 x[, 1]
 
@@ -1526,7 +2223,8 @@ x[ , 1]
 
 Do not put spaces inside or outside parentheses for regular function calls.
 
-```{r, eval = FALSE}
+
+```r
 # Good
 mean(x, na.rm = TRUE)
 
@@ -1540,15 +2238,16 @@ mean( x, na.rm = TRUE )
 
 ## Spacing with Operators
 
-Most of the time when you are doing math, conditionals, logicals, or assignment, your operators should be surrounded by spaces. (e.g. for `==`, `+`, `-`, `<-`, etc.)
+Most of the time when you are doing math, conditionals, logicals, or assignment, your operators should be surrounded by spaces. (e.g. for `==`, `+`, `-`, `&lt;-`, etc.)
 
-```{r, eval = FALSE}
+
+```r
 # Good
-height <- (feet * 12) + inches
+height &lt;- (feet * 12) + inches
 mean(x, na.rm = 10)
 
 # Bad
-height<-feet*12+inches
+height&lt;-feet*12+inches
 mean(x, na.rm=10)
 ```
 
@@ -1559,9 +2258,10 @@ See the [Tidyverse Style Guide](https://style.tidyverse.org/) for more details!
 
 ## Extra Spacing
 
-Adding extra spaces ok if it improves alignment of `=` or `<-`.
+Adding extra spaces ok if it improves alignment of `=` or `&lt;-`.
 
-```{r, eval = FALSE}
+
+```r
 # Good
 list(
   total = a + b + c,
@@ -1585,7 +2285,8 @@ Strive to limit your code to 80 characters per line. This fits comfortably on a 
 If a function call is too long to fit on a single line, use one line each for the function name, each argument, and the closing `)`. This makes the code easier to read and to change later.
 
 
-```{r, eval = FALSE}
+
+```r
 # Good
 do_something_very_complicated(
   something = "that",
@@ -1599,19 +2300,20 @@ do_something_very_complicated("that", requires, many, arguments,
                               )
 ```
 
-*Tip! Try RStudio > Preferences > Code > Display > Show Margin with Margin column 
+*Tip! Try RStudio &gt; Preferences &gt; Code &gt; Display &gt; Show Margin with Margin column 
 80 to give yourself a visual cue!*
 
 ---
 
 ## Assignment
 
-We use `<-` instead of `=` for assignment. 
+We use `&lt;-` instead of `=` for assignment. 
 This is moderately controversial if you find yourself in the right (wrong?) communities.
 
-```{r, eval = FALSE}
+
+```r
 # Good
-x <- 5
+x &lt;- 5
 
 # Bad
 x = 5
@@ -1626,17 +2328,18 @@ In R, semi-colons (`;`) are used to execute pieces of R code on a single line.
 In general, this is bad practice and should be avoided. 
 Also, you never need to end lines of code with semi-colons!
 
-```{r, eval = FALSE}
+
+```r
 # Bad
-a <- 2; b <- 3
+a &lt;- 2; b &lt;- 3
 
 # Also bad
-a <- 2;
-b <- 3;
+a &lt;- 2;
+b &lt;- 3;
 
 # Good
-a <- 2
-b <- 3
+a &lt;- 2
+b &lt;- 3
 ```
 
 
@@ -1646,7 +2349,8 @@ b <- 3
 
 Use `"`, not `'`, for quoting text. The only exception is when the text already contains double quotes and no single quotes.
 
-```{r, eval = FALSE}
+
+```r
 # Bad
 'Text'
 'Text with "double" and \'single\' quotes'
@@ -1654,7 +2358,7 @@ Use `"`, not `'`, for quoting text. The only exception is when the text already 
 # Good
 "Text"
 'Text with "quotes"'
-'<a href="http://style.tidyverse.org">A link</a>'
+'&lt;a href="http://style.tidyverse.org"&gt;A link&lt;/a&gt;'
 ```
 
 
@@ -1663,3 +2367,126 @@ Use `"`, not `'`, for quoting text. The only exception is when the text already 
 Phew! All done for now. Follow these rules and your code will be looking 
 
 .middler[![fab](fab.gif)]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "default",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

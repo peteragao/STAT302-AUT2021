@@ -1,10 +1,10 @@
 ---
 title: "Short Labs"
-description: |
-  Some additional details about the website
+description: ""
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+### Short Lab 0: Course Overview [[.html](files/short-labs/short-lab-00_install.html)][[.Rmd](files/short-labs/short-lab-00_install.Rmd)]

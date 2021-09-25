@@ -1,13 +1,13 @@
 ---
 title: "STAT 302: Lecture 1"
 subtitle: "Introduction to R"
-author: "Bryan Martin"
+author: "Peter Gao (adapted from slides by Bryan Martin)"
 date: ""
 output:
   xaringan::moon_reader:
     css: ["default", "gao-theme.css", "gao-theme-fonts.css"]
     nature:
-      highlightStyle: github
+      highlightStyle: default
       highlightLines: true
       countIncrementalSlides: false
       titleSlideClass: ["center"]
@@ -23,41 +23,34 @@ library(kableExtra)
 # Outline
 
 1. Course Overview
-2. Introduction to R, RStudio, and R Markdown
-3. Getting started with data
+2. Introductions
+3. What is R? What is statistical computing?
+4. Short Lab 0
 
-.middler[**Goal:** Create a functional R Markdown document utilizing basic R functionality (Short Lab 1)]
 
 ---
 
 # Syllabus
 
 .middler[.large[
-[Link to syllabus](https://bryandmartin.github.io/STAT302/syllabus.html)
+[Link to syllabus](https://peteragao.github.io/STAT302-AUT2021/syllabus.html)
 ]]
+
 ---
+# On being back in person
 
-# Expectations
-
-What you should expect from me...
-* your learning will be my priority
-* you will be treated like an adult and with respect
-* your feedback will be valued
-* timely feedback on assignments
-* understandable and well-paced lectures (tell me if they are not!)
-* an attempt at making statistical computation as fun for you as it is for me!
 
 ---
 
-# Expectations
+# Introductions
 
-What I will expect from you...
-* regular attendance
-* timely assignments that represent your best work
-* a respectful and engaged classroom
-* a desire and effort to learn challenging material
+* What should we call you?
+* One goal for the class
+* One goal for the school year
+
 
 ---
+
 
 # Canvas Discussion
 
