@@ -101,7 +101,7 @@ In addition, I hope that we can be patient with one another as we begin transiti
 If you do not have a personal computer, you can borrow one for free from UW through the Student Technology Loan Program. In general, if you have trouble accessing a computer, please contact me so we can make sure you have the resources you need to learn.
 
 ### Feedback
-  I encourage and appreciate your feedback throughout the quarter. You are welcome to provide feedback on any aspect of the course at any time via email or in person. If you would prefer to do so confidentially, you can do so through the form here.
+  I encourage and appreciate your feedback throughout the quarter. You are welcome to provide feedback on any aspect of the course at any time via email or in person. If you would prefer to do so confidentially, you can do so through the form [here](https://forms.gle/pyjQB57dqyqEq3M99).
 
 ### Collaboration
   On most assignments, collaboration is allowed and encouraged. You may discuss problems, approaches, and solutions with your classmates. Acceptable collaboration is limited to your classmates in this course and you must clearly include on any collaborative work the name(s) of anyone with whom you worked. Additionally, all submitted work must be your own; you should not submit code or answers copied from any resource including your classmates. Plagiarism and cheating is easy for us to detect and can lead to serious negative consequences for you (see Academic Integrity below). If you have any questions regarding this policy, please ask for clarification.
@@ -140,3 +140,9 @@ Note that the software used in this class (e.g. Canvas, Zoom, Panopto) when used
 Sharing recordings and other class materials outside of class that include personally identifiable student information without the written consent of those students is a violation of FERPA. State law requires consent from people to be recorded (https://apps.leg.wa.gov/rcw/default.aspx?cite=9.73.030), please note that (1) that your participation in this class indicates your consent for course activities to be recorded, (2) you are not permitted to make your own recordings without consent from the instructor and everyone else involved, and (3) that the instructor’s recordings will be available for later playback only to students taking the course. For more information about privacy concerns, review the UW Privacy Office policies (https://privacy.uw.edu/policies/best-practices-online-conferencing/), or contact Helen Garrett, the UW's FERPA Officer.
 
 # Links and other resources
+
+[Canvas Page](https://canvas.uw.edu/courses/1483089)
+[Install R](https://cran.r-project.org/)
+[Install RStudio](https://rstudio.com/products/rstudio/download/#download)
+[Install RMarkdown](https://bookdown.org/yihui/rmarkdown/installation.html#installation)
+[RStudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
