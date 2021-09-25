@@ -6,5 +6,6 @@ title: "Lecture Slides"
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-* Lecture 00: Introduction to Statistical Programming
+* Lecture 00: Course Overview [[.html](files/slides/00_course-overview.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/master/docs/files/slides/00_course-overview.Rmd)]
+
 * Lecture 01: Introduction to R
