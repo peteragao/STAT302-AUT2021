@@ -141,8 +141,12 @@ Sharing recordings and other class materials outside of class that include perso
 
 # Links and other resources
 
-[Canvas Page](https://canvas.uw.edu/courses/1483089)
-[Install R](https://cran.r-project.org/)
-[Install RStudio](https://rstudio.com/products/rstudio/download/#download)
-[Install RMarkdown](https://bookdown.org/yihui/rmarkdown/installation.html#installation)
-[RStudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
+* [Canvas Page](https://canvas.uw.edu/courses/1483089)
+
+* [Install R](https://cran.r-project.org/)
+
+* [Install RStudio](https://rstudio.com/products/rstudio/download/#download)
+
+* [Install RMarkdown](https://bookdown.org/yihui/rmarkdown/installation.html#installation)
+
+* [RStudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
