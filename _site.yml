@@ -2,6 +2,8 @@ name: "STAT302-AUT2021"
 title: "STAT 302"
 description: |
   STAT 302
+output_dir: "."
+
 theme: theme.css
 navbar:
   right:
