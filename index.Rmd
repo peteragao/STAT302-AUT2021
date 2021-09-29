@@ -10,6 +10,8 @@ output:
 
 ![](files/images/bombe.jpeg)
 
+Materials for this course were originally developed by [Bryan Martin](https://bryandmartin.github.io/STAT302/index.html).
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
