@@ -25,7 +25,8 @@ library(kableExtra)
 1. Course Overview
 2. Introductions
 3. What is R? What is statistical computing?
-4. Short Lab 0
+4. R Basics
+5. Short Lab 0
 
 
 ---
@@ -40,7 +41,7 @@ library(kableExtra)
 # Introductions
 
 * What should we call you?
-* One goal for the class
+* Why are you taking this class?
 * One goal for the school year
 
 ---
@@ -500,9 +501,6 @@ layout:true
 
 ---
 
-.middler[![lion](lionking.jpg)]
-
----
 
 .pull-left[
 ## Bad

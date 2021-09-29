@@ -1,5 +1,5 @@
 ---
-title: "Short Lab 0"
+title: "Short Lab 1"
 author: "INSERT YOUR NAME HERE"
 date: "Due Date Here"
 output: html_document
@@ -29,41 +29,63 @@ h4.date {
 You should edit this .Rmd using RStudio, then click *Knit* in the menu bar of the Source window (above the text of this .Rmd).
 Remember, you must submit *both* your .Rmd and the compiled .html in order to receive full credit!
 
-## Part 1. Written Response
+## Part 1. Atomic vectors
 
-
-**9a.** Fill in the code below to assign two numeric variables.
-
-```{r}
-# Your code here
-```
-
-**9b.** Use object type functions to confirm your variables are numeric.
+**1.** Fill in the code below to assign two numeric variables.
 
 ```{r}
 # Your code here
 ```
 
-**10.** Write one line of code that involves an arithmetic operator and both of your variables.
+**2.** Use object type functions to confirm your variables are numeric.
 
 ```{r}
 # Your code here
 ```
 
-**11.** Write one line of code that involves a comparison operator, both of your variables, and evaluates to `TRUE`.
+**3.** Write one line of code that involves an arithmetic operator and both of your variables.
 
 ```{r}
 # Your code here
 ```
 
-**12.** Write one line of code that involves a comparison operator, a logical operator, both of your variables, and evaluates to `FALSE`. Make each of the operators different from the one you used in question 11. Add a comment to explain what your code is doing in words.
+**4.** Write one line of code that involves a comparison operator, both of your variables, and evaluates to `TRUE`. Add a comment to explain what your code is doing in words.
 
 ```{r}
 # Your code here
 ```
 
-**13.** Remove one of your variables from your workspace, then print out your workspace to confirm.
+## Part 2. Vectors and matrices
+
+**5.** What does the following code do?
+
+```{r, eval = T}
+set.seed(456)
+```
+
+**6.** Using the code below, we can simulate a vector of Uniform(0,1) random variables and two additional random variables ```y``` and ```z```. What is the difference between ```y``` and ```z```?
+
+```{r, eval = T}
+x <- runif(2000)
+y <- mean(x < .5)
+z <- mean(x)
+```
+
+**7.** Construct a 3 by 3 matrix with 1s on the main diagonal and 3s in all other entries.
+
+## Part 3. Some real data
+
+**8.** First, run ```install.packages("moderndive")``` and then the following code. This loads the ```house_prices``` dataset, which contains house sale data for King Country. What time period are these house prices from?
+
+```{r}
+library(moderndive)
+data("house_prices")
+```
+
+**9.** The ```house_prices$bedrooms``` vector contains information on the number of bedrooms in each house. What is the median value? What is the most common value?
 
 ```{r}
 # Your code here
 ```
+
+**10.** (Optional) The ```house_prices$bedrooms``` vector contains information on the number of bedrooms in each house. What is the maximum value? Is this realistic? Can you figure out what happened here?

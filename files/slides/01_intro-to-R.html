@@ -27,17 +27,169 @@ class: center, title-slide
 
 # Outline
 
-1. Course Overview
-2. Introductions
-3. What is R? What is statistical computing?
-4. Short Lab 0
+1. Review
+2. Data Types
+3. R Coding Style
+4. Short Lab 1
 
 
 ---
+layout: true
+# Review
+---
 
+1. R vs. R Studio vs. R Markdown
+2. R Basics
+---
+
+.large[*What is the difference between R and R Markdown?*]
+--
+
+.middler[.large[R Markdown files combine R code, results, plots, and text to produce presentations/websites/reports]]
+
+---
+
+
+```r
+# T or F?
+(6 &lt; 3) | (1 &lt; 3)
+```
+
+
+--
+
+
+
+```
+## [1] TRUE
+```
+
+
+--
+
+
+```r
+# T or F?
+x &lt;- 5
+y &lt;- 6
+(x &gt; 2) &amp; (y &lt; 5)
+```
+
+
+--
+
+
+
+```
+## [1] FALSE
+```
+
+--
+
+
+```r
+# T or F?
+x + 2 &lt; y
+```
+
+
+--
+
+
+```
+## [1] FALSE
+```
+--
+
+
+```r
+# ???
+x + (2 &lt; y)
+```
+
+--
+
+
+```
+## [1] 6
+```
+
+---
+
+layout: false
 class: inverse
 
 .middler[.huge[Data Types]]
+
+---
+# Atomic vectors
+
+  
+
+* logical
+* integer
+* double
+* character
+
+---
+
+# Atomic vectors
+
+&lt;img src="https://d33wubrfki0l68.cloudfront.net/eb6730b841e32292d9ff36b33a590e24b6221f43/57192/diagrams/vectors/summary-tree-atomic.png" width="500" style="display: block; margin: auto;" /&gt;
+
+from *Advanced R*, Hadley Wickham.
+
+---
+
+# Atomic vectors
+
+
+```r
+x &lt;- "hello"
+y &lt;- T
+```
+
+--
+
+
+```r
+class(x)
+```
+
+```
+## [1] "character"
+```
+
+```r
+class(y)
+```
+
+```
+## [1] "logical"
+```
+
+--
+
+
+```r
+as.numeric(x)
+```
+
+```
+## Warning: NAs introduced by coercion
+```
+
+```
+## [1] NA
+```
+
+```r
+as.numeric(y)
+```
+
+```
+## [1] 1
+```
 
 ---
 layout: true
@@ -45,8 +197,8 @@ layout: true
 # Vectors
 ---
 
-* A **vector** is a set of values of the same type
-* We create vectors using the function `c()`
+* A **vector** is a set of atomic vectors of the same type
+* We create vectors using the function `c()` 
 
 
 ```r
@@ -178,8 +330,7 @@ c(1, -1) * x
 ```
 
 ```
-## Warning in c(1, -1) * x: longer object length is not a multiple of shorter
-## object length
+## Warning in c(1, -1) * x: longer object length is not a multiple of shorter object length
 ```
 
 ```
@@ -191,8 +342,7 @@ c(1, -1) + x
 ```
 
 ```
-## Warning in c(1, -1) + x: longer object length is not a multiple of shorter
-## object length
+## Warning in c(1, -1) + x: longer object length is not a multiple of shorter object length
 ```
 
 ```
@@ -240,7 +390,7 @@ x == c(1, 3, 2, 4, 5)
 
 ## Boolean Vectors
 
-In code, entries that are `TRUE` or `FALSE` are called **booleans**. 
+In code, entries that are `TRUE` or `FALSE` are called **booleans** (logicals in R). 
 These are incredibly important, because they can be used to give your computer conditions.
 What will the following code do?
 
@@ -390,7 +540,7 @@ c(1, "b", 3)
 ```
 ## [1] "1" "b" "3"
 ```
-R will force the entries vector to be of the same type! This is a common source of bugs.
+R will force the entries in our vector to be of the same type! This is a common source of bugs.
 
 
 ---
@@ -1056,10 +1206,475 @@ What happened with the row and column names?
 
 
 ---
+layout: true
+
+# Lists
+
+---
+
+**Lists**, like vectors and matrices, are a class of objects in R.
+Lists are special because they can store multiple different types of data.
+
+
+```r
+my_list &lt;- list("some_numbers" = 1:5,
+                "some_characters" = c("a", "b", "c"),
+                "a_matrix" = diag(2))
+my_list
+```
+
+```
+## $some_numbers
+## [1] 1 2 3 4 5
+## 
+## $some_characters
+## [1] "a" "b" "c"
+## 
+## $a_matrix
+##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1
+```
+
+Make sure to store items within a list using `=`, not `&lt;-`!
+
+---
+
+## Accessing List Elements
+
+There are three ways to access an item within a list
+
+* double brackets `[[]]` with its name in quotes
+* double brackets `[[]]` with its index as a number
+* dollar sign `$` followed by its name without quotes
+
+---
+
+* double brackets `[[]]` with its name in quotes
+* double brackets `[[]]` with its index as a number
+* dollar sign `$` followed by its name without quotes
+
+
+```r
+my_list[["some_numbers"]]
+```
+
+```
+## [1] 1 2 3 4 5
+```
+
+```r
+my_list[[1]]
+```
+
+```
+## [1] 1 2 3 4 5
+```
+
+```r
+my_list$some_numbers
+```
+
+```
+## [1] 1 2 3 4 5
+```
+
+---
+
+## Why double brackets?
+
+If you use a single bracket to index, like we do with matrices and vectors, you will return 
+a list with a single element.
+
+
+```r
+my_list[1]
+```
+
+```
+## $some_numbers
+## [1] 1 2 3 4 5
+```
+
+```r
+my_list[[1]]
+```
+
+```
+## [1] 1 2 3 4 5
+```
+
+Note that this means you can only return a single item in a list using double brackets or the dollar sign! (Why?) 
+
+---
+
+## Why double brackets?
+
+This is a subtle but important difference!
+
+
+```r
+my_list[1] + 1
+```
+
+```
+## Error in my_list[1] + 1: non-numeric argument to binary operator
+```
+
+
+```r
+my_list[[1]] + 1
+```
+
+```
+## [1] 2 3 4 5 6
+```
+
+
+---
+
+## Subsetting a list 
+
+You can subset a list similarly to vectors and matrices using single brackets.
+
+
+```r
+my_list[1:2]
+```
+
+```
+## $some_numbers
+## [1] 1 2 3 4 5
+## 
+## $some_characters
+## [1] "a" "b" "c"
+```
+
+```r
+my_list[-2]
+```
+
+```
+## $some_numbers
+## [1] 1 2 3 4 5
+## 
+## $a_matrix
+##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1
+```
+
+---
+
+## Adding to a list
+
+We can use the same tools we used to access list elements to add to a list.
+However, if we use double brackets, we must use quotes, otherwise R will search for something that does not yet exist.
+
+
+```r
+my_list$a_boolean &lt;- FALSE
+my_list[["a_list"]] &lt;- list("recursive" = TRUE)
+```
+
+
+---
+
+
+
+```r
+my_list
+```
+
+```
+## $some_numbers
+## [1] 1 2 3 4 5
+## 
+## $some_characters
+## [1] "a" "b" "c"
+## 
+## $a_matrix
+##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1
+## 
+## $a_boolean
+## [1] FALSE
+## 
+## $a_list
+## $a_list$recursive
+## [1] TRUE
+```
+
+---
+
+## Names of List Items
+
+Call `names()` to get a vector of list item names.
+
+
+```r
+names(my_list)
+```
+
+```
+## [1] "some_numbers"    "some_characters" "a_matrix"        "a_boolean"       "a_list"
+```
+
+---
+
+## Why bother?
+
+* Lists give us **key-value pairs**, also known as **dictionaries** or **associative arrays**
+* This means we can look up items in a list by name, rather than location
+* For example, if we know we are looking for `output` within a list, we can always search for it, regardless of how the list was created or what else it contains
+
+---
+layout: false
+layout: true
+
+# Data Frames
+
+---
+
+A **data frame** in R is essentially a special type of list, where each item is a vector of equal length.
+Typically, we say that data has `\(n\)` rows (one for each **observation**) and `\(p\)` columns (one for each **variable**)
+
+Unlike a matrix, columns can have different types.
+However, many column functions still apply! (such as `colSums`, `summary`, etc.)
+
+
+---
+
+## Creating a data frame
+
+An easy way to create a data frame is to use the function `data.frame()`. 
+
+Like lists, make sure you define the names using `=` and not `&lt;-`!
+
+
+```r
+my_data &lt;- data.frame("var1" = 1:3,
+                      "var2" = c("a", "b", "c"),
+                      "var3" = c(TRUE, FALSE, TRUE))
+my_data
+```
+
+```
+##   var1 var2  var3
+## 1    1    a  TRUE
+## 2    2    b FALSE
+## 3    3    c  TRUE
+```
+
+---
+
+## Creating a data frame
+
+If you import or create numeric data as a `matrix`, you can also convert it easily
+using `as.data.frame()`
+
+
+```r
+my_matrix &lt;- matrix(1:9, nrow = 3, ncol = 3)
+as.data.frame(my_matrix)
+```
+
+```
+##   V1 V2 V3
+## 1  1  4  7
+## 2  2  5  8
+## 3  3  6  9
+```
+
+
+---
+
+## Subsetting data frames
+
+We can subset data frames using most of the tools we've learned about subsetting so far. We can use keys or indices.
+
+
+```r
+my_data$var1
+```
+
+```
+## [1] 1 2 3
+```
+
+```r
+my_data["var1"]
+```
+
+```
+##   var1
+## 1    1
+## 2    2
+## 3    3
+```
+
+```r
+my_data[["var1"]]
+```
+
+```
+## [1] 1 2 3
+```
+
+---
+
+## Subsetting data frames
+
+
+```r
+my_data[1]
+```
+
+```
+##   var1
+## 1    1
+## 2    2
+## 3    3
+```
+
+```r
+my_data[[1]]
+```
+
+```
+## [1] 1 2 3
+```
+
+```r
+my_data[, 1]
+```
+
+```
+## [1] 1 2 3
+```
+
+```r
+my_data[1, ]
+```
+
+```
+##   var1 var2 var3
+## 1    1    a TRUE
+```
+
+
+---
+
+## Adding to a data frame
+
+We can add to a data frame using `rbind()` and `cbind()`, but be careful with type mismatches!
+We can also add columns using the column index methods.
+
+
+```r
+# These all do the same thing
+my_data &lt;- cbind(my_data, "var4" = c(3, 2, 1))
+my_data$var4 &lt;- c(3, 2, 1)
+my_data[, "var4"] &lt;- c(3, 2, 1)
+my_data[["var4"]] &lt;- c(3, 2, 1)
+my_data
+```
+
+```
+##   var1 var2  var3 var4
+## 1    1    a  TRUE    3
+## 2    2    b FALSE    2
+## 3    3    c  TRUE    1
+```
+
+---
+
+## Adding to a data frame
+
+
+```r
+rbind(my_data, c(1, 2, 3, 4))
+```
+
+```
+##   var1 var2 var3 var4
+## 1    1    a    1    3
+## 2    2    b    0    2
+## 3    3    c    1    1
+## 4    1    2    3    4
+```
+
+```r
+rbind(my_data, list(4, "d", FALSE, 0))
+```
+
+```
+##   var1 var2  var3 var4
+## 1    1    a  TRUE    3
+## 2    2    b FALSE    2
+## 3    3    c  TRUE    1
+## 4    4    d FALSE    0
+```
+
+
+---
+
+## Investigating a data frame
+
+We can use `str()` to see the structure of a data frame (or any other object!)
+
+
+```r
+my_data2 &lt;- rbind(my_data, c(1, 2, 3, 4))
+str(my_data2)
+```
+
+```
+## 'data.frame':	4 obs. of  4 variables:
+##  $ var1: num  1 2 3 1
+##  $ var2: chr  "a" "b" "c" "2"
+##  $ var3: num  1 0 1 3
+##  $ var4: num  3 2 1 4
+```
+
+```r
+my_data2 &lt;- rbind(my_data, list(4, "d", FALSE, 0))
+str(my_data2)
+```
+
+```
+## 'data.frame':	4 obs. of  4 variables:
+##  $ var1: num  1 2 3 4
+##  $ var2: chr  "a" "b" "c" "d"
+##  $ var3: logi  TRUE FALSE TRUE FALSE
+##  $ var4: num  3 2 1 0
+```
+
+
+---
+
+Most data frames will have column names describing the variables. 
+They can also include rownames, which we can add using `rownames()`.
+
+
+```r
+rownames(my_data2) &lt;- c("Obs1", "Obs2", "Obs3", "Obs4")
+my_data2
+```
+
+```
+##      var1 var2  var3 var4
+## Obs1    1    a  TRUE    3
+## Obs2    2    b FALSE    2
+## Obs3    3    c  TRUE    1
+## Obs4    4    d FALSE    0
+```
+---
 layout: false
 class: inverse
 
-.middler[.huge[Part 4: R Coding Style Guide]]
+.middler[.huge[R Coding Style Guide]]
 
 ---
 layout:true
@@ -1163,8 +1778,7 @@ objfun &lt;- function(theta, W, M, X, X_star, np, npstar, link, phi.link) {
 * Want to understand code you wrote &gt;24 hours ago without comments?
 
 --
-.center[![David](davidsmall.gif)]
-.center[.small[I just learned you can add gifs to R Markdown slides. Expect a lot of these]]
+.center[![small](images/confused.gif)]
 
 --
 * If you still aren't convinced...
@@ -1395,7 +2009,7 @@ Use `"`, not `'`, for quoting text. The only exception is when the text already 
 
 Phew! All done for now. Follow these rules and your code will be looking 
 
-.middler[![fab](fab.gif)]
+.middler[![](images/spongebob.gif)]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
