@@ -7,6 +7,6 @@ description: ""
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-### Short Lab 0: Course Overview [[.html](files/short-labs/short-lab-00_install.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/master/docs/files/short-labs/short-lab-00_install.Rmd)]
+### Short Lab 0: Course Overview [[.html](files/short-labs/short-lab-00_install.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/master/files/short-labs/short-lab-00_install.Rmd)]
 
 ### Short Lab 1: Introduction to R
