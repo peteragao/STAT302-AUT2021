@@ -23,7 +23,83 @@ class: center, title-slide
 
 
 
+# Before class
 
+What do you think the code below does? Check with your neighbor.
+
+
+```r
+is.na(NA)
+is.na("NA")
+is.na(NULL)
+is.na(Inf)
+
+# What about these two?
+round(4.5)
+round(3.5)
+```
+---
+# Before class
+
+
+```r
+is.na(NA)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+is.na("NA")
+```
+
+```
+## [1] FALSE
+```
+
+```r
+is.na(NULL)
+```
+
+```
+## logical(0)
+```
+
+```r
+is.na(Inf)
+```
+
+```
+## [1] FALSE
+```
+---
+# Before class
+
+```r
+# What about these two?
+round(4.5)
+```
+
+```
+## [1] 4
+```
+
+```r
+round(3.5)
+```
+
+```
+## [1] 4
+```
+
+--
+
+From R Documentation: 
+
+*Note that for rounding off a 5, the IEC 60559 standard (see also ‘IEEE 754’) is expected to be used, ‘go to the even digit’. Therefore round(0.5) is 0 and round(-1.5) is -2. However, this is dependent on OS services and on representation error (since e.g. 0.15 is not represented exactly, the rounding rule applies to the represented number and not to the printed number, and so round(0.15, 1) could be either 0.1 or 0.2).*
+
+---
 
 # Outline
 
@@ -49,23 +125,6 @@ layout: true
 
 ---
 
-
-```r
-# T or F?
-(6 &lt; 3) | (1 &lt; 3)
-```
-
-
---
-
-
-
-```
-## [1] TRUE
-```
-
-
---
 
 
 ```r
@@ -1035,7 +1094,7 @@ dim(mat1)
 ---
 
 
-### Determinent `det()`
+### Determinant `det()`
 
 
 ```r
