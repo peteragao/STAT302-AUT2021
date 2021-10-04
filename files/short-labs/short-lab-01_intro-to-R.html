@@ -207,25 +207,28 @@ h4.date {
 <pre class="r"><code>set.seed(456)
 sample(1:6, 1)</code></pre>
 <pre><code>## [1] 5</code></pre>
+<p><strong>4.</strong> We can also use in-line R code in R Markdown to ensure that we don’t have to edit our text each time we knit our file. Edit the text below using in-line code to print out your value of <code>x</code>.</p>
+<pre class="r"><code>x &lt;- sample(1:6, 1)</code></pre>
+<p>The value of <code>x</code> that I obtained is YOUR ANSWER HERE.</p>
 </div>
 <div id="part-2.-vectors-and-matrices" class="section level2">
 <h2>Part 2. Vectors and matrices</h2>
-<p><strong>6.</strong> Choose a seed and replace the seed used in the code below. Using the code below, we can simulate a vector of Uniform(0,1) random variables and two additional random variables <code>y</code> and <code>z</code>. What is the difference between <code>y</code> and <code>z</code>?</p>
+<p><strong>5.</strong> Choose a seed and replace the seed used in the code below. Using the code below, we can simulate a vector of Uniform(0,1) random variables and two additional random variables <code>y</code> and <code>z</code>. What is the difference between <code>y</code> and <code>z</code>?</p>
 <pre class="r"><code>set.seed(456)
 x &lt;- runif(2000)
 y &lt;- mean(x &lt; .5)
 z &lt;- mean(x)</code></pre>
-<p><strong>7.</strong> Construct a 3 by 3 matrix with 1s on the main diagonal and 3s in all other entries. Print the resulting matrix.</p>
+<p><strong>6.</strong> Construct a 3 by 3 matrix with 1s on the main diagonal and 3s in all other entries. Print the resulting matrix.</p>
 <pre class="r"><code># YOUR CODE HERE</code></pre>
 </div>
 <div id="part-3.-some-real-data" class="section level2">
 <h2>Part 3. Some real data</h2>
-<p><strong>8.</strong> First, run <code>install.packages(&quot;moderndive&quot;)</code> and then the following code. This loads the <code>house_prices</code> dataset, which contains house sale data for King Country. What time period are these house prices from?</p>
+<p><strong>7.</strong> First, run <code>install.packages(&quot;moderndive&quot;)</code> and then the following code. This loads the <code>house_prices</code> dataset, which contains house sale data for King Country. What time period are these house prices from?</p>
 <pre class="r"><code>library(moderndive)
 data(&quot;house_prices&quot;)</code></pre>
-<p><strong>9.</strong> The <code>house_prices$bedrooms</code> vector contains information on the number of bedrooms in each house. What is the median value? What is the most common value?</p>
+<p><strong>8.</strong> The <code>house_prices$bedrooms</code> vector contains information on the number of bedrooms in each house. What is the median value? What is the most common value?</p>
 <pre class="r"><code># Your code here</code></pre>
-<p><strong>10.</strong> (Optional) The <code>house_prices$bedrooms</code> vector contains information on the number of bedrooms in each house. What is the maximum value? Is this realistic? Can you figure out what happened here?</p>
+<p><strong>9.</strong> (Optional) The <code>house_prices$bedrooms</code> vector contains information on the number of bedrooms in each house. What is the maximum value? Is this realistic? Can you figure out what happened here?</p>
 </div>
 
 

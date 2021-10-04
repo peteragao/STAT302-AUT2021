@@ -52,9 +52,17 @@ set.seed(456)
 sample(1:6, 1)
 ```
 
+**4.** We can also use in-line R code in R Markdown to ensure that we don't have to edit our text each time we knit our file. Edit the text below using in-line code to print out your value of ```x```.
+
+```{r, eval = T}
+x <- sample(1:6, 1)
+```
+
+The value of ```x``` that I obtained is YOUR ANSWER HERE.
+
 ## Part 2. Vectors and matrices
 
-**6.** Choose a seed and replace the seed used in the code below. Using the code below, we can simulate a vector of Uniform(0,1) random variables and two additional random variables ```y``` and ```z```. What is the difference between ```y``` and ```z```?
+**5.** Choose a seed and replace the seed used in the code below. Using the code below, we can simulate a vector of Uniform(0,1) random variables and two additional random variables ```y``` and ```z```. What is the difference between ```y``` and ```z```?
 
 ```{r, eval = T}
 set.seed(456)
@@ -63,7 +71,7 @@ y <- mean(x < .5)
 z <- mean(x)
 ```
 
-**7.** Construct a 3 by 3 matrix with 1s on the main diagonal and 3s in all other entries. Print the resulting matrix.
+**6.** Construct a 3 by 3 matrix with 1s on the main diagonal and 3s in all other entries. Print the resulting matrix.
 
 ```{r, eval = T}
 # YOUR CODE HERE
@@ -71,17 +79,17 @@ z <- mean(x)
 
 ## Part 3. Some real data
 
-**8.** First, run ```install.packages("moderndive")``` and then the following code. This loads the ```house_prices``` dataset, which contains house sale data for King Country. What time period are these house prices from?
+**7.** First, run ```install.packages("moderndive")``` and then the following code. This loads the ```house_prices``` dataset, which contains house sale data for King Country. What time period are these house prices from?
 
 ```{r}
 library(moderndive)
 data("house_prices")
 ```
 
-**9.** The ```house_prices$bedrooms``` vector contains information on the number of bedrooms in each house. What is the median value? What is the most common value?
+**8.** The ```house_prices$bedrooms``` vector contains information on the number of bedrooms in each house. What is the median value? What is the most common value?
 
 ```{r}
 # Your code here
 ```
 
-**10.** (Optional) The ```house_prices$bedrooms``` vector contains information on the number of bedrooms in each house. What is the maximum value? Is this realistic? Can you figure out what happened here?
+**9.** (Optional) The ```house_prices$bedrooms``` vector contains information on the number of bedrooms in each house. What is the maximum value? Is this realistic? Can you figure out what happened here?
