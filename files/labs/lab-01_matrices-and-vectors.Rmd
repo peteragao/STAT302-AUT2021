@@ -98,6 +98,6 @@ These are `rbinom()`, `pbinom()`, and `dbinom()`.
 
 (*Hint: the expected value of a draw from a $Bin(n,p)$ distribution is $n\times p$*)
 
-**2f.** What is the *expected* column variance for each column? Which matrix has observed column means that are closer to this expectation? Why do you think that is?
+**2f.** What is the theoretical variance for the values in each column? Which matrix has observed column sample variances that are closer to this value? Why do you think that is?
 
 
