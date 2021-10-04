@@ -8,9 +8,17 @@ output:
     self_contained: false
 ---
 
+
 ![](files/images/bombe.jpeg)
 
 Materials for this course were originally developed by [Bryan Martin](https://bryandmartin.github.io/STAT302/index.html).
+
+# Schedule 
+
+### Week Two
+
+* **M 10/04**: Short Lab 1 assigned
+* **W 10/06**: Short Lab 1 due before class; Lab 1 assigned
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
