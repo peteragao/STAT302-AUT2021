@@ -57,6 +57,30 @@ From R Documentation:
 
 ---
 
+# Before class
+
+Introduce yourself to your neighbor and discuss the following questions
+
+* Do you like to listen to music while working, and if so, what?
+* What does the following code do? Does it raise any errors? You can check the answer on the next slide.
+
+```{r, eval = FALSE}
+x <- c("hello", "my", 30, NA, "students")
+x[is.na(x)] <- "beloved"
+print(x)
+cat(x)
+```
+
+--
+
+```{r, eval = TRUE, echo = F}
+x <- c("hello", "my", 30, NA, "students")
+x[is.na(x)] <- "beloved"
+print(x)
+cat(x)
+```
+---
+
 # Outline
 
 1. Review
@@ -1023,10 +1047,14 @@ readability
 
 ---
 
-## Example of when I break my own rules
+## Example of breaking rules
 
-* Here's a snippet of a long mathematical function I wrote (lots code emitted with ellipses for space).
-* In order to help myself read through it later, I divided the function into major steps marked by easily visible comments I can see when scanning through
+* Here's a snippet of a long mathematical function (lots of code omitted with ellipses for space).
+* Code is divided into major steps marked by easily visible comments
+
+---
+
+## Example of breaking rules
 
 ```{r, eval = FALSE}
 objfun <- function(theta, W, M, X, X_star, np, npstar, link, phi.link) {
@@ -1056,7 +1084,11 @@ objfun <- function(theta, W, M, X, X_star, np, npstar, link, phi.link) {
 --
 .center[![small](images/confused.gif)]
 
---
+---
+
+## A final plea
+
+
 * If you still aren't convinced...
 
 --
