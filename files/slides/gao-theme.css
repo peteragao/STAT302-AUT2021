@@ -154,3 +154,12 @@ hr, .mline h1::after {
   margin-top: -95px;
   margin-left: -00px;
 }
+.sectionhead {
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  width: 95%;
+  transform: translate(-50%, -50%);
+  font-size: 250% 
+}
