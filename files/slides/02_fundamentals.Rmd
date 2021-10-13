@@ -1242,7 +1242,7 @@ getwd()
 
 We can also reference the current directory using the shorthand `.`.
 ```{r, eval = FALSE}
-setwd("./lectureslides2")
+setwd("./STAT302/Slides")
 ```
 
 ```{r}

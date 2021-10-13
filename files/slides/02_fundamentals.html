@@ -133,6 +133,10 @@ How could I write a function that takes in a whole number `x` and outputs all of
 get_factors(10)
 ```
 
+```
+## [1]  1  2  5 10
+```
+
 ---
 
 
@@ -1581,6 +1585,83 @@ Another example:
 
 ---
 
+## Using R to tidy data
+
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following object is masked from 'package:kableExtra':
+## 
+##     group_rows
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```
+## # A tibble: 18 x 11
+##    religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`
+##    &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##  1 Agnostic      27        34        60        81        76       137        122
+##  2 Atheist       12        27        37        52        35        70         73
+##  3 Buddhist      27        21        30        34        33        58         62
+##  4 Catholic     418       617       732       670       638      1116        949
+##  5 Don’t k…      15        14        15        11        10        35         21
+##  6 Evangel…     575       869      1064       982       881      1486        949
+##  7 Hindu          1         9         7         9        11        34         47
+##  8 Histori…     228       244       236       238       197       223        131
+##  9 Jehovah…      20        27        24        24        21        30         15
+## 10 Jewish        19        19        25        25        30        95         69
+## 11 Mainlin…     289       495       619       655       651      1107        939
+## 12 Mormon        29        40        48        51        56       112         85
+## 13 Muslim         6         7         9        10         9        23         16
+## 14 Orthodox      13        17        23        32        32        47         38
+## 15 Other C…       9         7        11        13        13        14         18
+## 16 Other F…      20        33        40        46        49        63         46
+## 17 Other W…       5         2         3         4         2         7          3
+## 18 Unaffil…     217       299       374       365       341       528        407
+## # … with 3 more variables: $100-150k &lt;dbl&gt;, &gt;150k &lt;dbl&gt;,
+## #   Don't know/refused &lt;dbl&gt;
+```
+
+
+---
+## Using R to tidy data
+
+
+```
+## # A tibble: 180 x 3
+##    religion income             frequency
+##    &lt;chr&gt;    &lt;chr&gt;                  &lt;dbl&gt;
+##  1 Agnostic &lt;$10k                     27
+##  2 Agnostic $10-20k                   34
+##  3 Agnostic $20-30k                   60
+##  4 Agnostic $30-40k                   81
+##  5 Agnostic $40-50k                   76
+##  6 Agnostic $50-75k                  137
+##  7 Agnostic $75-100k                 122
+##  8 Agnostic $100-150k                109
+##  9 Agnostic &gt;150k                     84
+## 10 Agnostic Don't know/refused        96
+## # … with 170 more rows
+```
+
+
+---
+
 ## A final reference
 
 Hadley Wickham is the ultimate resource on tidy data principles. 
@@ -1646,7 +1727,7 @@ getwd()
 We can also reference the current directory using the shorthand `.`.
 
 ```r
-setwd("./lectureslides2")
+setwd("./STAT302/Slides")
 ```
 
 
