@@ -25,6 +25,12 @@ Materials for this course were originally developed by [Bryan Martin](https://br
 * **M 10/11**: Short Lab 2 assigned
 * **W 10/13**: Short Lab 2 and Lab 1 due before class; Lab 2 assigned
 
+### Week Four
+
+* **M 10/18**: No assignment
+* **W 10/20**: Lab 2 due before class; Project 1 assigned
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
