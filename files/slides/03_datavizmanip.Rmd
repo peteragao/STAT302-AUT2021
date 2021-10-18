@@ -13,6 +13,8 @@ output:
       titleSlideClass: ["center"]
 ---
 
+
+
 ```{r setup, include=FALSE, purl=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(comment = "##")
@@ -20,6 +22,66 @@ knitr::opts_chunk$set(cache = TRUE)
 library(kableExtra)
 ```
 
+# Before class
+
+**1a.** (3 points) The hard-threshold function is defined as 
+$$f_\lambda(x) = \begin{cases} x & |x| \geq \lambda\\ 0 & |x| < \lambda \end{cases}$$
+Write an R function that takes two parameters, numeric input `x` and a threshold `lambda`.
+Your function should return the value of $f_\lambda(x)$ and work for vector input `x` of any length.
+
+```{r, eval = F}
+hard_threshold <- function(x, lambda) {
+  # YOUR CODE HERE
+  return(YOUR_OUTPUT_HERE)
+}
+
+```
+
+---
+
+# Before class
+
+**1b.** (1 point) Set $\lambda = 4$, demonstrate your function on the vector `c(-5, -3, 0, 3, 5)`.
+
+```{r, echo = F}
+hard_threshold <- function(x, lambda) {
+  # YOUR CODE HERE
+  return(c(-5, 0, 0, 0, 5))
+}
+
+```
+```{r, eval = T}
+answer_1b <- hard_threshold(x = c(-5, -3, 0, 3, 5), lambda = 4)
+```
+
+---
+
+# Before class
+
+**1b.** (1 point) Set $\lambda = 4$, demonstrate your function on the vector `c(-5, -3, 0, 3, 5)`.
+
+```{r, echo = F}
+hard_threshold <- function(x, lambda) {
+  # YOUR CODE HERE
+  return(c(-5, 0, 0, 0, 5))
+}
+
+```
+```{r, eval = T}
+answer_1b <- hard_threshold(x = c(-5, -3, 0, 3, 5), lambda = 4)
+answer_1b # MAKE SURE TO PRINT OUT YOUR ANSWER
+```
+
+
+---
+
+# Grading notes
+
+1. Your grade is primarily based on your **knitted** .html file. All your answers and solutions should be in your .html file; look through this file before you submit!
+2. Make sure you print out all answers/results. They should appear in your .html file.
+3. Explanations and written responses are not optional--you will lose points for missing answers even if all your code is correct.
+
+---
 
 # Outline
 
