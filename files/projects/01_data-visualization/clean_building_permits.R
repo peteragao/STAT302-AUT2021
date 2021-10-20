@@ -24,7 +24,7 @@ building_permits$IssuedMth <- month(issued_date)
 
 # restrict to last five years and remove unnecessary variables
 building_permits <- building_permits %>%
-  filter(IssuedYear >= 2017) %>%
+  filter(IssuedYear >= 2017 & IssuedYear <= 2021) %>%
   select(-AppliedDate, -ExpiresDate, -CompletedDate, -RelatedMup, -Link, -Location1) 
 
 # remove rows with missing location
