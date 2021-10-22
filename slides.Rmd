@@ -13,3 +13,5 @@ knitr::opts_chunk$set(echo = FALSE)
 * Lecture 02: R Fundamentals [[.html](files/slides/02_fundamentals.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/slides/02_fundamentals.Rmd)]
 
 * Lecture 03: Data Visualization and Manipulation [[.html](files/slides/03_datavizmanip.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/slides/03_datavizmanip.Rmd)]
+
+* Lecture 04: Strings, Factors, and Dates [[.html](files/slides/04_stringsfactors.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/slides/04_stringsfactors.Rmd)]
