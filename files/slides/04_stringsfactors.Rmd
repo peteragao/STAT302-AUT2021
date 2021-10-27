@@ -531,6 +531,61 @@ Because of this, creating data frames (but not tibbles!) in R often default to s
 
 ---
 
+
+# Movies data
+
+```{r, warning = F, message = F, cache = T}
+movies <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-10-23/movie_profit.csv")
+colnames(movies)
+```
+
+---
+
+# Movies data
+
+```{r, warning = F, message = F, cache = T}
+genre_char <- movies$genre
+genre_fct <- as.factor(movies$genre)
+head(genre_char)
+head(genre_fct)
+```
+
+---
+
+# Movies data
+
+```{r, warning = F, message = F, cache = T}
+object.size(genre_char)
+object.size(genre_fct) 
+```
+
+---
+
+# Movies data
+
+```{r, warning = F, message = F, cache = T}
+movies <- movies %>%
+  mutate(genre = as.factor(genre)) %>%
+  mutate(return = worldwide_gross / production_budget)
+genre_medians <- movies %>%
+  group_by(genre) %>%
+  summarize(median_budget = median(production_budget),
+            median_domestic = median(domestic_gross),
+            median_ww = median(worldwide_gross),
+            median_return = median(return)) %>%
+  ungroup()
+```
+---
+
+# Movies data
+
+
+```{r, warning = F, message = F, cache = T, fig.height = 5, fig.width = 6}
+ggplot(genre_medians, aes(x = genre, y = median_return)) +
+  geom_bar(stat="identity") + theme(text = element_text(size = 20))
+```
+---
+
 # <TT>factor()</TT>: create a factor
 
 ```{r}
@@ -670,6 +725,30 @@ fct_other(f2, keep = c("a", "b"))
 ```
 
 ---
+# Movies data
+
+```{r, warning = F, message = F, cache = T, fig.height = 5, fig.width = 6}
+movies <- movies %>%
+  mutate(genre = fct_collapse(genre,
+                              AA = c("Action", "Adventure"))) %>%
+  mutate(genre = fct_recode(genre, Scary = "Horror"))
+genre_medians <- movies %>%
+  group_by(genre) %>%
+  summarize(median_budget = median(production_budget),
+            median_domestic = median(domestic_gross),
+            median_ww = median(worldwide_gross),
+            median_return = median(return)) %>%
+  ungroup()
+```
+
+---
+# Movies data
+
+```{r, warning = F, message = F, cache = T, fig.height = 5, fig.width = 6}
+ggplot(genre_medians, aes(x = genre, y = median_return)) +
+  geom_bar(stat="identity") + theme(text = element_text(size=20))
+```
+---
 
 # <TT>forcats</TT> cheatsheet
 
@@ -704,6 +783,13 @@ library(lubridate)
 ```
 
 ---
+
+```{r}
+head(movies$release_date)
+```
+
+---
+
 layout: true
 # Parsing Date-times
 
@@ -749,6 +835,20 @@ ymd("2020-01-29")
 
 ---
 
+
+```{r}
+head(movies$release_date)
+```
+
+--
+
+
+
+```{r}
+head(mdy(movies$release_date))
+```
+
+---
 We can add times, and even quarters.
 
 ```{r}
@@ -776,6 +876,15 @@ day(x)
 ```
 
 ---
+```{r}
+head(mdy(movies$release_date))
+```
+--
+```{r}
+head(year(mdy(movies$release_date)))
+```
+---
+
 
 ```{r}
 hour(x)

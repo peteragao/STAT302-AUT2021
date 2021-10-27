@@ -11,9 +11,9 @@ As usual, all code below should follow the style guidelines from the lecture sli
 ## Part 1. Read in text data
 
 For this short lab, we will be using Project Gutenberg’s The Complete Works of William Shakespeare. 
-Use the command `read_lines()` to read the text available at
+Use the command `read_lines()` from the `readr` package to read the text available at
 "https://www.gutenberg.org/files/100/100-0.txt".
-Make sure to store the text as a variable.
+Make sure to store the text as a variable. Use the `skip` argument to discard the first 23 lines of extra info.
 
 **1a.** Print the first 5 lines.
 
@@ -23,38 +23,29 @@ Make sure to store the text as a variable.
 
 (*Hint: to remove empty elements from a string vector x, you could use* `x <- x[x != ""]`)
 
-## Part 2. Regular expressions
+## Part 2. String Manipulation
 
-**2a.** Use a regular expression with `str_count()` to count how much punctuation is in this text file, in total.
+**2a.** Use `str_c()` to collapse the Shakespeare string vector into one large string. (Don't try to print it!)
 
-**2b.** Use a regular expression with `str_detect()` to count how many lines contain *either* the string "Romeo" or "Juliet".
-
-## Part 3. String Manipulation
-
-**3a.** Use `str_c()` to collapse the Shakespeare string vector into one large string. (Don't try to print it!)
-
-**3b.** Use `str_split()` to separate your string into words.
+**2b.** Use `str_split()` to separate your string into words.
 
 (*Hint: you might get a list of length 1 that you have to convert to a vector. You could do this by using something like* `x <- unlist(x)` *or* `x <- x[[1]]`)
 
-**3c.** Use a combination of `table()` and `sort(..., decreasing = TRUE)` argument to get a count of the unique words in Shakespeare's complete works and print out the 10 most common words.
+**2c.** Use a combination of `table()` and `sort(..., decreasing = TRUE)` argument to get a count of the unique words in Shakespeare's complete works and print out the 10 most common words.
 
-## Part 4. Factors
+## Part 3. Factors
 
-**4a.** Create an object that is a factor vector with 4 levels, where each of these levels is observed at least once.
+**3a.** Use the code below to load the `movies` data, courtesy of `the-numbers.com`. Turn the `genre` and `mpaa_rating` variables into factors.
 
-**4b.** Collapse two of your factor levels together into a new level "x".
+```{r, message = F, warning = F}
+movies <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-10-23/movie_profit.csv")
+```
+**3b.** Collapse the `Drama` and `Horror` levels of `genre` into one `Drama_Horror` level.
 
-**4c.** Add a new, empty level to your factor and print out the vector.
+**3c.** Create a new factor variable in the movies tibble, `audience`, that takes the value `"all ages"` for G and PG movies, `"Teens and adults"` for PG-13 movies, and `"Adults only"` for R movies.
 
-**4d.** Remove this empty level from your factor and print out the vector.
+## Part 4. Dates
 
-## Part 5. Dates
+**4a.** Convert the `release_date` variable into a column of `Date` objects using an appropriate function.
 
-**5a.** Create a date-time object in R, with both a date and a time.
-
-**5b.** Extract the date from your object.
-
-**5c.** Extract the month from your object.
-
-**5d.** Change the hour of your object, then extract the hour from your object.
+**4b.** Create a new column for `year` that extracts the year of release for each movie.

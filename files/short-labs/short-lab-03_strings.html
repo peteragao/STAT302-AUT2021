@@ -174,37 +174,30 @@ pre code {
 <p>As usual, all code below should follow the style guidelines from the lecture slides.</p>
 <div id="part-1.-read-in-text-data" class="section level2">
 <h2>Part 1. Read in text data</h2>
-<p>For this short lab, we will be using Project Gutenberg’s The Complete Works of William Shakespeare. Use the command <code>read_lines()</code> to read the text available at “<a href="https://www.gutenberg.org/files/100/100-0.txt" class="uri">https://www.gutenberg.org/files/100/100-0.txt</a>”. Make sure to store the text as a variable.</p>
+<p>For this short lab, we will be using Project Gutenberg’s The Complete Works of William Shakespeare. Use the command <code>read_lines()</code> from the <code>readr</code> package to read the text available at “<a href="https://www.gutenberg.org/files/100/100-0.txt" class="uri">https://www.gutenberg.org/files/100/100-0.txt</a>”. Make sure to store the text as a variable. Use the <code>skip</code> argument to discard the first 23 lines of extra info.</p>
 <p><strong>1a.</strong> Print the first 5 lines.</p>
 <p><strong>1b.</strong> Print the total number of lines.</p>
 <p><strong>1c.</strong> Remove all empty lines, then print the total number of lines.</p>
 <p>(<em>Hint: to remove empty elements from a string vector x, you could use</em> <code>x &lt;- x[x != &quot;&quot;]</code>)</p>
 </div>
-<div id="part-2.-regular-expressions" class="section level2">
-<h2>Part 2. Regular expressions</h2>
-<p><strong>2a.</strong> Use a regular expression with <code>str_count()</code> to count how much punctuation is in this text file, in total.</p>
-<p><strong>2b.</strong> Use a regular expression with <code>str_detect()</code> to count how many lines contain <em>either</em> the string “Romeo” or “Juliet”.</p>
-</div>
-<div id="part-3.-string-manipulation" class="section level2">
-<h2>Part 3. String Manipulation</h2>
-<p><strong>3a.</strong> Use <code>str_c()</code> to collapse the Shakespeare string vector into one large string. (Don’t try to print it!)</p>
-<p><strong>3b.</strong> Use <code>str_split()</code> to separate your string into words.</p>
+<div id="part-2.-string-manipulation" class="section level2">
+<h2>Part 2. String Manipulation</h2>
+<p><strong>2a.</strong> Use <code>str_c()</code> to collapse the Shakespeare string vector into one large string. (Don’t try to print it!)</p>
+<p><strong>2b.</strong> Use <code>str_split()</code> to separate your string into words.</p>
 <p>(<em>Hint: you might get a list of length 1 that you have to convert to a vector. You could do this by using something like</em> <code>x &lt;- unlist(x)</code> <em>or</em> <code>x &lt;- x[[1]]</code>)</p>
-<p><strong>3c.</strong> Use a combination of <code>table()</code> and <code>sort(..., decreasing = TRUE)</code> argument to get a count of the unique words in Shakespeare’s complete works and print out the 10 most common words.</p>
+<p><strong>2c.</strong> Use a combination of <code>table()</code> and <code>sort(..., decreasing = TRUE)</code> argument to get a count of the unique words in Shakespeare’s complete works and print out the 10 most common words.</p>
 </div>
-<div id="part-4.-factors" class="section level2">
-<h2>Part 4. Factors</h2>
-<p><strong>4a.</strong> Create an object that is a factor vector with 4 levels, where each of these levels is observed at least once.</p>
-<p><strong>4b.</strong> Collapse two of your factor levels together into a new level “x”.</p>
-<p><strong>4c.</strong> Add a new, empty level to your factor and print out the vector.</p>
-<p><strong>4d.</strong> Remove this empty level from your factor and print out the vector.</p>
+<div id="part-3.-factors" class="section level2">
+<h2>Part 3. Factors</h2>
+<p><strong>3a.</strong> Use the code below to load the <code>movies</code> data, courtesy of <code>the-numbers.com</code>. Turn the <code>genre</code> and <code>mpaa_rating</code> variables into factors.</p>
+<pre class="r"><code>movies &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-10-23/movie_profit.csv&quot;)</code></pre>
+<p><strong>3b.</strong> Collapse the <code>Drama</code> and <code>Horror</code> levels of <code>genre</code> into one <code>Drama_Horror</code> level.</p>
+<p><strong>3c.</strong> Create a new factor variable in the movies tibble, <code>audience</code>, that takes the value <code>&quot;all ages&quot;</code> for G and PG movies, <code>&quot;Teens and adults&quot;</code> for PG-13 movies, and <code>&quot;Adults only&quot;</code> for R movies.</p>
 </div>
-<div id="part-5.-dates" class="section level2">
-<h2>Part 5. Dates</h2>
-<p><strong>5a.</strong> Create a date-time object in R, with both a date and a time.</p>
-<p><strong>5b.</strong> Extract the date from your object.</p>
-<p><strong>5c.</strong> Extract the month from your object.</p>
-<p><strong>5d.</strong> Change the hour of your object, then extract the hour from your object.</p>
+<div id="part-4.-dates" class="section level2">
+<h2>Part 4. Dates</h2>
+<p><strong>4a.</strong> Convert the <code>release_date</code> variable into a column of <code>Date</code> objects using an appropriate function.</p>
+<p><strong>4b.</strong> Create a new column for <code>year</code> that extracts the year of release for each movie.</p>
 </div>
 
 

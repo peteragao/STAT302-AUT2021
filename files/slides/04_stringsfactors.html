@@ -3252,6 +3252,96 @@ Because of this, creating data frames (but not tibbles!) in R often default to s
 
 ---
 
+
+# Movies data
+
+
+```r
+movies &lt;- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-10-23/movie_profit.csv")
+colnames(movies)
+```
+
+```
+## [1] "X1"                "release_date"      "movie"             "production_budget" "domestic_gross"   
+## [6] "worldwide_gross"   "distributor"       "mpaa_rating"       "genre"
+```
+
+---
+
+# Movies data
+
+
+```r
+genre_char &lt;- movies$genre
+genre_fct &lt;- as.factor(movies$genre)
+head(genre_char)
+```
+
+```
+## [1] "Comedy"    "Action"    "Adventure" "Action"    "Action"    "Action"
+```
+
+```r
+head(genre_fct)
+```
+
+```
+## [1] Comedy    Action    Adventure Action    Action    Action   
+## Levels: Action Adventure Comedy Drama Horror
+```
+
+---
+
+# Movies data
+
+
+```r
+object.size(genre_char)
+```
+
+```
+## 27544 bytes
+```
+
+```r
+object.size(genre_fct) 
+```
+
+```
+## 14376 bytes
+```
+
+---
+
+# Movies data
+
+
+```r
+movies &lt;- movies %&gt;%
+  mutate(genre = as.factor(genre)) %&gt;%
+  mutate(return = worldwide_gross / production_budget)
+genre_medians &lt;- movies %&gt;%
+  group_by(genre) %&gt;%
+  summarize(median_budget = median(production_budget),
+            median_domestic = median(domestic_gross),
+            median_ww = median(worldwide_gross),
+            median_return = median(return)) %&gt;%
+  ungroup()
+```
+---
+
+# Movies data
+
+
+
+```r
+ggplot(genre_medians, aes(x = genre, y = median_return)) +
+  geom_bar(stat="identity") + theme(text = element_text(size = 20))
+```
+
+![](04_stringsfactors_files/figure-html/unnamed-chunk-43-1.png)&lt;!-- --&gt;
+---
+
 # &lt;TT&gt;factor()&lt;/TT&gt;: create a factor
 
 
@@ -3641,6 +3731,34 @@ fct_other(f2, keep = c("a", "b"))
 ```
 
 ---
+# Movies data
+
+
+```r
+movies &lt;- movies %&gt;%
+  mutate(genre = fct_collapse(genre,
+                              AA = c("Action", "Adventure"))) %&gt;%
+  mutate(genre = fct_recode(genre, Scary = "Horror"))
+genre_medians &lt;- movies %&gt;%
+  group_by(genre) %&gt;%
+  summarize(median_budget = median(production_budget),
+            median_domestic = median(domestic_gross),
+            median_ww = median(worldwide_gross),
+            median_return = median(return)) %&gt;%
+  ungroup()
+```
+
+---
+# Movies data
+
+
+```r
+ggplot(genre_medians, aes(x = genre, y = median_return)) +
+  geom_bar(stat="identity") + theme(text = element_text(size=20))
+```
+
+![](04_stringsfactors_files/figure-html/unnamed-chunk-59-1.png)&lt;!-- --&gt;
+---
 
 # &lt;TT&gt;forcats&lt;/TT&gt; cheatsheet
 
@@ -3676,6 +3794,18 @@ library(lubridate)
 ```
 
 ---
+
+
+```r
+head(movies$release_date)
+```
+
+```
+## [1] "6/22/2007"  "7/28/1995"  "5/12/2017"  "12/25/2013" "6/22/2018"  "8/1/2014"
+```
+
+---
+
 layout: true
 # Parsing Date-times
 
@@ -3780,6 +3910,30 @@ ymd("2020-01-29")
 
 ---
 
+
+
+```r
+head(movies$release_date)
+```
+
+```
+## [1] "6/22/2007"  "7/28/1995"  "5/12/2017"  "12/25/2013" "6/22/2018"  "8/1/2014"
+```
+
+--
+
+
+
+
+```r
+head(mdy(movies$release_date))
+```
+
+```
+## [1] "2007-06-22" "1995-07-28" "2017-05-12" "2013-12-25" "2018-06-22" "2014-08-01"
+```
+
+---
 We can add times, and even quarters.
 
 
@@ -3866,6 +4020,25 @@ day(x)
 ```
 
 ---
+
+```r
+head(mdy(movies$release_date))
+```
+
+```
+## [1] "2007-06-22" "1995-07-28" "2017-05-12" "2013-12-25" "2018-06-22" "2014-08-01"
+```
+--
+
+```r
+head(year(mdy(movies$release_date)))
+```
+
+```
+## [1] 2007 1995 2017 2013 2018 2014
+```
+---
+
 
 
 ```r
