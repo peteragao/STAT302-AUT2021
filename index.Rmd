@@ -35,6 +35,12 @@ Materials for this course were originally developed by [Bryan Martin](https://br
 * **M 10/25**: No assignment
 * **W 10/27**: Project 1 due before class; Short Lab 3 assigned
 
+### Week Six
+
+* **M 11/01**: Short Lab 3 due before class; Short Lab 4 assigned
+* **W 11/03**: Short Lab 4 due before class; Lab 3 assigned
+
+
 
 
 ```{r setup, include=FALSE}
