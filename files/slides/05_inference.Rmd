@@ -60,7 +60,7 @@ Regression provides us with a statistical method to conduct
 ---
 # Intermission: History of "Regression"
 
-.middler[The history of the term "regression", much like the history of the field of statistics, is marred in the history of eugenics and racism.]
+.middler[The history of the term "regression", like that of the field of statistics, is closely tied to the eugenics movement.]
 
 ---
 

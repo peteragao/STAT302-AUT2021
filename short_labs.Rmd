@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Short Lab 3: Strings, Factors, and Dates [[.html](files/short-labs/short-lab-03_strings.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/short-labs/short-lab-03_strings.Rmd)]
 
-### Short Lab 4: Linear regression [[.html](files/short-labs/short-lab-04_lm.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/short-labs/short-lab-04_lm.Rmd)]
+### Optional exercises: Linear regression [[.html](files/short-labs/short-lab-04_lm.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/short-labs/short-lab-04_lm.Rmd)]
 
 
 ### Optional exercises: Data Cleaning [[.html](files/short-labs/optional_data-cleaning.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/short-labs/optional_data-cleaning.Rmd)]
