@@ -39,10 +39,10 @@ You should use the following information:
 (*Hint: Be careful about whether you use `lower.tail = TRUE` or `lower.tail = FALSE` in the two-sided test! One safe option is to use `lower.tail = FALSE` with the absolute value (`abs()`) of your test statistic.*)
 
 
-To prove it works, load the data below (description at https://www.openintro.org/data/index.php?data=helium). THe `air` column represents the distance traveled by an air-filled ball whereas the `helium` column is the same for a helium-filled ball. Use this data for a two-sided t-test comparing air-filled balls and helium-fileld balls. using both `my_t.test()` and `t.test()`. The results should match. Do the same for a one-sided t-test. 
+To prove it works, load the data below (description at https://www.openintro.org/data/index.php?data=helium). THe `air` column represents the distance traveled by an air-filled ball whereas the `helium` column is the same for a helium-filled ball. Use this data for a two-sided t-test to test the hypothesis that the population mean of `helium` is different than 20 using both `my_t.test()` and `t.test()`. The results should match. Do the same for a one-sided t-test testing that the population mean of `helium` is greater than 20.
 
 ```{r}
-helium <- read.csv("https://www.openintro.org/data/csv/helium.csv")
+helium_data <- read.csv("https://www.openintro.org/data/csv/helium.csv")
 ```
 
 ## Part 2. Linear model (10 points)
