@@ -457,6 +457,37 @@ This can also be expressed in matrix form:
 
 This will be helpful for Lab 3!
 
+---
+
+# Least squares
+
+How do we choose/estimate $\beta_{(k+1)\times1}$?
+
+Least squares finds the line that minimizes the squared distance between the points and the line, i.e. makes $$\left[y_i - (\beta_0 + \beta_1 x_{i, 1} + \dots + \beta_k x_{i,k})\right]^2$$ as small as possible for all $i = 1, \dots, n$.
+
+The vector $\widehat{\beta}$ that minimizes the sum of the squared distances is ()
+
+$$ \widehat{\beta}=\left(\mathbf{X}^T \mathbf{X} \right)^{-1}\mathbf{X}^T \mathbf{Y}.$$
+
+Note: In statistics, once we have estimated a parameter we put a "hat" on it, e.g. $\widehat{\beta_0}$ is the estimate of the true parameter $\beta_0$.
+
+---
+
+# Least squares in R
+
+For lab 3, you will need to take a `formula` and an input data frame `data` and perform linear regression.
+
+Your function should return a `table` similar to the coefficent table from `summary()` with rows for each coefficient (including the `(Intercept)`!) and columns for the `Estimate`, `Std. Error`, `t value`, and `Pr(>|t|)`. There should be row and column names.
+
+```{r, eval = F}
+my_lm <- function(formula, data) {
+  # YOUR CODE HERE
+}
+```
+
+Tips:
+1. Start by writing pseudo-code. What are the steps you need to achieve?
+2. Remember the formula $\widehat{\beta}=\left(\mathbf{X}^T \mathbf{X} \right)^{-1}\mathbf{X}^T \mathbf{Y}$. How will you extract $\mathbf{Y}$ and $\mathbf{X}$ from your data frame? The functions `model.frame()` and `model.response()` will be helpful.
 
 
 ---
@@ -756,23 +787,9 @@ We've already defined a p-value, without explicitly naming the term.
 That's it. Nothing more, nothing less, and every part of the definition is important.
 
 ---
-layout: false
-
-# Why is 0.05 so special?
-
+layout:false
 ---
 
-# Why is 0.05 so special?
-
-## It isn't. 
-
-A cut-off of 0.05 was deemed by Ronald Fisher<sup>1</sup> in 1925 to indicate that "either there is something in the treatment, or a coincidence has occurred such as does not occur more than once in twenty trials."
-
-Academia has decided that this value is of critical importance for reasons that frustrate statisticians to this day.
-
-.footnote[[1] Historical note: Fisher is considered by many to be the father of modern statistics, and his contributions to the field cannot be denied. He was also a vocal racist, prominent eugenics supporter, and Nazi sympathizer. I mention this to acknowledge and highlight the historical context of statistics research. Fisher's views were extreme, even by the admittedly different standards of the time. We can appreciate the magnitude of his contributions to statistics while also recognizing and understanding the problematic views he actively supported and how those views might have impacted the people and the development of the field around him.]
-
----
 layout: true
 
 # Type 1 error
@@ -884,18 +901,6 @@ layout: true
 * Why we should be cautious about small p-values
 
 * Why we should be cautious about large p-values
-]
-
----
-
-.middler-nocent[
-* Why we should be cautious about small p-values
-
-* Why we should be cautious about large p-values
-]
-
-.middler[
-<img src="images/oxy.gif" alt="" height="500"/>
 ]
 
 ---

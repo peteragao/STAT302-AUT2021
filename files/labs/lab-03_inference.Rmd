@@ -56,7 +56,7 @@ Your function should have the following parameters:
 
 Your function should return a `table` similar to the coefficent table from `summary()` with rows for each coefficient (including the `(Intercept)`!) and columns for the `Estimate`, `Std. Error`, `t value`, and `Pr(>|t|)`. There should be row and column names.
 
-You should use the following information:
+You may find the following information helpful:
 
 * Use `model.matrix()` to extract the model matrix $\mathbf{X}$. It takes as input parameters a formula and data.
 * Use `model.response()` to extract the model response $\mathbf{Y}$. It takes as input a model frame object.
