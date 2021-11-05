@@ -40,6 +40,16 @@ Materials for this course were originally developed by [Bryan Martin](https://br
 * **M 11/01**: Short Lab 3 due before class; Lab 3 assigned
 * **W 11/03**: Continue work on Lab 3 (due 11/10)
 
+### Week Seven
+
+* **M 11/08**: Continue work on Lab 3 (due 11/10)
+* **W 11/10**: Lab 3 due; Project 2 assigned (due 11/22) 
+
+### Week Eight
+
+* **M 11/15**: Continue work on Project 2
+* **W 11/17**: Continue work on Project 2
+
 
 
 

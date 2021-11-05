@@ -20,7 +20,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Capitol_%28PSF%29.jpg/640px-Capitol_%28PSF%29.jpg)
 
-*tentative due date: 11/17*
+**due date: 11/22**
+
+* Instructions [[.html](files/projects/02_congress-data/02_voting-analysis.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/projects/02_congress-data/02_voting-analysis.Rmd)]
 
 # Project 3: R Package Development 
 

@@ -30,7 +30,7 @@ library(tidyverse)
 4. Cluster Analysis
 5. Principal Components Analysis (PCA)
 
-.middler[**Goal:** Appreciate the beauty of SVD and PCA!]
+.middler[**Goal:** Practice using R to aid in understanding a statistical method.]
 
 ---
 class: inverse
@@ -278,7 +278,8 @@ We'll use the package `jpeg` for this section. There are other options for handl
 library(jpeg)
 
 # Load my image
-tmp <- "https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/images/cameraman.jpg"
+tmp <- paste0("https://raw.githubusercontent.com/peteragao/",
+              "STAT302-AUT2021/base/files/images/cameraman.jpg")
 
 # Read image into R
 img <- readJPEG(readBin(tmp, "raw",1e6))
@@ -629,7 +630,7 @@ Computing the SVD is fast and easy, computing a covariance matrix is hard. Thus,
 
 ---
 
-# A Pedantic Note
+# SVD vs. PCA
 
 Note that information available online about the relationship between SVD and PCA can be confusing.
 Some sources say they are effectively the same thing. Others say that it is like comparing apples and oranges. 

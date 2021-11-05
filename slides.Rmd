@@ -17,3 +17,5 @@ knitr::opts_chunk$set(echo = FALSE)
 * Lecture 04: Strings, Factors, and Dates [[.html](files/slides/04_stringsfactors.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/slides/04_stringsfactors.Rmd)]
 
 * Lecture 05: Regression and Inference [[.html](files/slides/05_inference.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/slides/05_inference.Rmd)]
+
+* Lecture 06: Application: SVD and PCA [[.html](files/slides/06_svdpca.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/slides/06_svdpca.Rmd)]
