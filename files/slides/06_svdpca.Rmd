@@ -262,6 +262,12 @@ What if we have rankings for a new user, and we want to make an educated guess a
 Note: We can use a similar procedure multiplying several users' ratings of a new movie by $\mathbf{U}$ users-to-concepts vectors in order to put movies into certain genres!
 
 ---
+
+.center[<img src="images/eigenfaces.png" alt="" height="300"/>]
+
+
+![Source](https://en.wikipedia.org/wiki/Eigenface#/media/File:Eigenfaces.png)
+---
 layout: false
 class: inverse
 
@@ -344,7 +350,9 @@ layout: true
 
 # US Arrests Data
 
-.center[<img src="images/pcaplot1.png" alt="" height="250"/>]
+---
+.center[<img src="images/pcaplot1.png" alt="" height="500"/>]
+
 
 ---
 
@@ -357,6 +365,7 @@ Credit for this image, along with much of the helpful interpretations in this se
 
 ---
 
+
 Biplots show two pieces of important information:
 
 * **scores:** the positions of observations in principal components space, "observation-to-concept"
@@ -364,6 +373,10 @@ Biplots show two pieces of important information:
 * **loadings:** how much each variable contributes to the principal components, "variable-to-concept"
   * This is just the columns of $\mathbf{V}$ from SVD!
   
+---
+.center[<img src="images/pcaplot1.png" alt="" height="500"/>]
+
+
 ---
 
 Let's focus on the loadings first. Some observations:
@@ -408,7 +421,7 @@ layout: true
 
 # Scaling variables before PCA
 
-.center[<img src="images/pcaplot2.png" alt="" height="250"/>]
+.center[<img src="images/pcaplot2.png" alt="" height="300"/>]
 
 ---
 

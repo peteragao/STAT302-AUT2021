@@ -33,7 +33,7 @@ penguins %>%
   theme_bw()
 ```
 
-**1.** Comment on what you see in the plot above. Use several sentences, as later in this short lab you will be comparing your conclusions here to those from PCA. Focus on the associations between species and the various quantitative variables, and how those associations differ across species.
+**1.** Comment on what you see in the plot above. What variables distinguish the various species? If you were given a set of measurements on a penguin, would you be able to identify what species it was?
 
 ## Part 2. PCA
 
@@ -57,7 +57,7 @@ names(pc_out)
 
 **2.** Use the documentation for `prcomp()` and your intuition with data exploration to explain what the `center` and `scale` elements of the `pc_out` object represent.
 
-**3.** Print out a table of the proportion of variance explained by the principal components. You may find the `summary()` function useful here. See `prcomp()` for examples of how to use it. How many principal components would you suggest using in this application and why?
+**3.** Print out a table of the proportion of variance explained by the principal components. You may find the `summary()` function useful here. See `prcomp()` for examples of how to use it. 
 
 ```{r}
 # YOUR CODE HERE
@@ -77,7 +77,7 @@ ggbiplot(pc_out, groups = as.factor(penguins$species), varname.size = 3.4) +
   theme_bw() +   scale_colour_manual(values = c("darkorange","purple","cyan4"))
 ```
 
-**4.** First let's discuss the variables. Discuss which variables (`flipper_length_mm`, `body_mass_g`, `bill_length_mm`, `bill_depth_mm`) seem to be correlated, which do not, and why you are coming to these conclusions.
+**4.** Discuss which variables (`flipper_length_mm`, `body_mass_g`, `bill_length_mm`, `bill_depth_mm`) seem to be correlated, which do not, and why you are coming to these conclusions.
 
 **5.** Next let's discuss the species. How might we distinguish the species of penguins using the first two principal components? (e.g. Which species tend to have higher scores for the first principal component? The second?)
 
