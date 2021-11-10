@@ -222,7 +222,7 @@ pre code {
 \hat{\sigma}^2 = \sum_i \dfrac{(Y_i - \mathbf{X}_i \beta)^2}{\text{df}}.
 \]</span></li>
 <li>You can estimate the standard error for your coefficients using the formula <span class="math display">\[
-se(\hat{\beta}_j) = \left[\sqrt{\hat{\sigma}^2(\mathbf{X}^T\mathbf{X})^{-1}}\right]_{[j,j]}.
+se(\hat{\beta}_j) = \sqrt{\left[\hat{\sigma}^2(\mathbf{X}^T\mathbf{X})^{-1}\right]_{[j,j]}}.
 \]</span> Note that within the brackets of the right-hand side is a matrix and <span class="math inline">\([j,j]\)</span> represents the element of the matrix located at the <span class="math inline">\(j\)</span><sup>th</sup> row and <span class="math inline">\(j\)</span><sup>th</sup> column indices.</li>
 <li>Use <code>diag()</code> to extract diagonal components from a matrix.</li>
 <li><code>Pr(&gt;|t|)</code> comes from the two-sided t test. <span class="math display">\[

@@ -73,7 +73,7 @@ $$
 $$
 * You can estimate the standard error for your coefficients using the formula
 $$
-se(\hat{\beta}_j) = \left[\sqrt{\hat{\sigma}^2(\mathbf{X}^T\mathbf{X})^{-1}}\right]_{[j,j]}.
+se(\hat{\beta}_j) = \sqrt{\left[\hat{\sigma}^2(\mathbf{X}^T\mathbf{X})^{-1}\right]_{[j,j]}}.
 $$
 Note that within the brackets of the right-hand side is a matrix and $[j,j]$ represents the element of the matrix located at the $j$<sup>th</sup> row and $j$<sup>th</sup> column indices. 
 * Use `diag()` to extract diagonal components from a matrix.
