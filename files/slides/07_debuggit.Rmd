@@ -31,6 +31,39 @@ library(tidyverse)
 .middler[**Goal:** Learn how to understand and fix R errors independently and get started with git!]
 
 ---
+# Scope 
+
+```{r}
+x <- 10
+main_fn <- function(y) {
+  print(x + y)
+}
+```
+```{r, eval = F}
+main_fn(y = 20)
+
+```
+--
+```{r, echo = F}
+main_fn(y = 20)
+```
+
+The **scope** of a variable describes the location/part of a program where that variable name is recognized.
+
+---
+# Scope 
+
+```{r, eval = F}
+x <- 5
+main_fn(y = 20)
+```
+--
+```{r, echo = F}
+x <- 5
+main_fn(y = 20)
+```
+
+---
 class: inverse
 
 .sectionhead[Part 1. Debugging]

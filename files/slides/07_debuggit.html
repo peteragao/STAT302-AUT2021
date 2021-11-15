@@ -31,6 +31,42 @@ class: center, title-slide
 .middler[**Goal:** Learn how to understand and fix R errors independently and get started with git!]
 
 ---
+# Scope 
+
+
+```r
+x &lt;- 10
+main_fn &lt;- function(y) {
+  print(x + y)
+}
+```
+
+```r
+main_fn(y = 20)
+```
+--
+
+```
+## [1] 30
+```
+
+The **scope** of a variable describes the location/part of a program where that variable name is recognized.
+
+---
+# Scope 
+
+
+```r
+x &lt;- 5
+main_fn(y = 20)
+```
+--
+
+```
+## [1] 25
+```
+
+---
 class: inverse
 
 .sectionhead[Part 1. Debugging]
