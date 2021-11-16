@@ -740,10 +740,10 @@ class: inverse
 
 Installing and connecting all the software you need is truly half the battle.
 
-* **Mac:** Congratulations, you are using a good operating system for software development and you are probably already done. Open the `Terminal` app and type `git --version` to find out which version you have and `which git` to find out where it is. If you see an offer to install command line tools, do so!
+* **Mac:** You are probably already done. Open the `Terminal` app and type `git --version` to find out which version you have and `which git` to find out where it is. If you see an offer to install command line tools, do so!
   * If for some reason you don't have git pre-installed, you can download it from [here](http://git-scm.com/downloads).
 
-* **Linux:** Congratulations, you are using a good operating system for software development and you are probably already done. Open your console and type type `git --version` to find out which version you have and `which git` to find out where it is. If you don't have it, then it's easy to install.
+* **Linux:** You are probably already done. Open your console and type type `git --version` to find out which version you have and `which git` to find out where it is. If you don't have it, then install:
   * Ubuntu or Debian Linux: `sudo apt-get install git`
   * Fedora or RedHat Linux: `sudo yum install git`
   
@@ -751,14 +751,12 @@ Installing and connecting all the software you need is truly half the battle.
 
 # Install Git - Windows (*)
   
-* **Windows:** Whew... 
+* **Windows:** 
 
  * Install [Git for Windows](https://gitforwindows.org/) (also known as `msysgit` or "Git Bash")
  * **Important note:** When asked about "Adjusting your PATH environment", make sure to select "Git from the command line and also from 3rd-party software".
  * Note that RStudio for Windows prefers for Git to be installed below `C:/Program Files` and this appears to be the default. This implies, for example, that the Git executable on my Windows system is found at `C:/Program Files/Git/bin/git.exe`. Unless you have specific reasons to otherwise, follow this convention.
  
-To quote Jenny Bryan: "Windows is not the ideal platform for scientific computing and software development. A lot of the functionality is going to feel janky and strapped on. Because it is."
-
 Hopefully, after following the instructions above, you have a Git Bash shell. To check this, open your shell and type `echo $SHELL`. You should see something like `usr/bin/bash`.
 
 ---
@@ -826,12 +824,30 @@ Remember, GitHub can become a part of your professional portfolio, and it likely
 All users get unlimited free private repositories with up to three collaborators. As students, I highly recommend you sign up for free student benefits at [https://education.github.com/](https://education.github.com/), which includes unlimited free private repositories with unlimited collaborators.
 
 ---
+# Introduce yourself to Git (*)
 
+Run the following in your R session:
 
+```{r, eval = F}
+install.packages("usethis", "gitcreds")
+```
 
-# Set up git (*)
+Then this:
 
-Run the following in your shell (filling in your information, of course):
+```{bash, eval = FALSE}
+library(usethis)
+use_git_config(
+  user.name = "Firstname Lastname",
+  user.email = "email@website.com"
+)
+```
+
+**Note:** The email should be the email associated with your GitHub account!
+
+---
+# Introduce yourself to Git (*)
+
+Alternatively , run the following in your shell (filling in your information, of course):
 
 ```{bash, eval = FALSE}
 git config --global user.name 'Firstname Lastname'
@@ -841,15 +857,28 @@ git config --global --list
 
 **Note:** The email should be the email associated with your GitHub account!
 
-I also suggest you set up your default editor. At some point when you have a merge conflict, git will push you into an editor to resolve it. It should be the one you prefer! (I use Sublime Text on a Mac)
+---
+# Introduce your computer to GitHub (*)
 
-For example, if you like `emacs`, you can do
+When using GitHub, you typically need to verify your identity using a Personal Access Token (PAT).
 
-```{bash, eval = FALSE}
-git config --global core.editor "emacs"
+In R, run:
+
+```{r, eval = F}
+usethis::create_github_token()
 ```
 
-Check out [Software Carpentry's guide](https://swcarpentry.github.io/git-novice/02-setup/) for more examples of what line to run for different editor-operating system combinations.
+For now, select scopes "repo", "user", and "workflow"  (will be pre-selected). Copy the generated PAT to your clipboard. Leave this browser window open so you can come back to copy the PAT!
+
+In R, call `gitcreds::gitcreds_set()` to paste your PAT:
+
+```{sh eval = FALSE}
+> gitcreds::gitcreds_set()
+? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-> Adding new credentials...
+-> Removing credentials from cache...
+-> Done.
+```
 
 ---
 
@@ -936,10 +965,10 @@ Now check the repository online at GitHub. What changed?
 
 
 1. Navigate to [the shortlab section of the course webpage](https://peteragao.github.io/STAT302-AUT2021/short_labs.html).
-2. Download the .Rmd for Short Lab 4
-3. Using your standard file browser, copy the .Rmd into the git repo you created for the previous slides.
-4. In the Short Lab 4 .Rmd, fill in the required text for the link to your repo
-5. Knit/Compile Short Lab 4
+2. Download the .Rmd for Short Lab 4.
+3. Using your standard file browser, copy the .Rmd into the folder (git repo) you created for the previous slides.
+4. In the Short Lab 4 .Rmd, fill in the required text for the link to your repo.
+5. Knit/Compile Short Lab 4. 
 6. Add, commit, and push the change to your remote repository following the relevant steps from the previous slide.
 
 Now check the repository online at GitHub. If you see a README, .Rmd, and .html, then congratulations, you are done with this step!
@@ -966,7 +995,7 @@ After you have confirmed that the online GitHub repository matches what you expe
 
 **This is the recommended set up for all of your R projects!** 
 
-That is, first create on GitHub, then clone through RStudio. (Not clone through shell and then delete and then re-clone, this was done for demonstration purposes only.)
+That is, first create on GitHub, then clone through RStudio.
 
 ---
 

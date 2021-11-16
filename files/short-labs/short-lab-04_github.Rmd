@@ -1,17 +1,32 @@
 ---
-title: "Short Lab 5"
+title: "Short Lab 4"
 author: "INSERT YOUR NAME HERE"
 date: "Due Date Here"
 output: html_document
 ---
 
 
-## Part 1. Set up a GitHub!
+## Part 1. Set up Git and GitHub
 
-Follow the instructions on Lecture Slides 6 (60 -- 68).
+1. Register for a (free) [GitHub](https://github.com/) account. You may want to also add the [Student Developer Pack](https://education.github.com/pack) to your account.
+
+2. Install Git on your computer.
+
+3. Introduce yourself to Git.
+
+4. Introduce your computer to GitHub.
+
+5. Create a Git repo for Short Lab 4 and clone it to your computer.
+
+6. Commit a local change using the shell.
+
+7. Delete your local repository, then use RStudio to clone your repository back to your computer and commit a local change using RStudio.
+
+8. If you use a private repository, add me and the grader as collaborators.
+
+## Part 2. Send us your repository
 
 Please type only the link to your repository using the template below. Fill in both the square brackets `[]` and the parentheses `()` with your link.
-
 
 [YOUR LINK HERE](YOUR LINK HERE)
 
