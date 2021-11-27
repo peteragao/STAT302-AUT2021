@@ -22,4 +22,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Lecture 07: Debugging and Git [[.html](files/slides/07_debuggit.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/slides/07_debuggit.html)]
 
-* Lecture 08: Resampling [[.html](files/slides/08_resample-bayes.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/slides/08_resample-bayes.html)]
+* Lecture 08: Application: Resampling [[.html](files/slides/08_resample-bayes.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/slides/08_resample-bayes.html)]
+
+* Lecture 09: Application: Prediction [[.html](files/slides/09_prediction.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/slides/09_prediction.html)]
