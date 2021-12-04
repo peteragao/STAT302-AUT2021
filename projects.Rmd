@@ -28,5 +28,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Cat_using_computer.jpg/640px-Cat_using_computer.jpg)
 
-*tentative due date: 12/13*
+*due date: 12/13*
 
+* Instructions [[.html](files/projects/03_vignettes/03_vignettes.html)] [[.Rmd](https://raw.githubusercontent.com/peteragao/STAT302-AUT2021/base/files/projects/03_vignettes/03_vignettes.Rmd)]
