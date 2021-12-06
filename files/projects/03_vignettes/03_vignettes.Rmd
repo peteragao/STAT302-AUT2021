@@ -18,9 +18,9 @@ This R package should include the following  functions we've written throughout 
 * `my_lm`
 * `my_knn_cv`
 
-Follow the instruction on Lecture Slides 9 to set up the skeleton of your package (5 points for proper setup). Your package should include the following:
+Follow the instruction on Lecture Slides 10 to set up the skeleton of your package (5 points for proper setup). Your package should include the following:
 
-1. (10 points) Complete documentation for each of your functions and data. Each function must include `@examples` in the documentation.
+1. (5 points) Complete documentation for each of your functions and data. Each function must include `@examples` in the documentation.
 
 2. (15 points) A detailed vignette with examples and the use of all of these functions with the penguins data from the `palmerpenguins` package. You must add and document the `penguins` data to your own package and export it as the object `my_penguins` (with proper credit in the documentation!). Specifically, the vignette should have the following parts:
 

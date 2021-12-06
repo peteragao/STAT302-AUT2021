@@ -1,6 +1,6 @@
 ---
 title: "STAT 302, Lecture Slides 10"
-subtitle: "Statistical Prediction"
+subtitle: "R Package Development"
 author: "Peter Gao (adapted from slides by Bryan Martin)"
 date: ""
 output:
