@@ -522,6 +522,181 @@ utils::browseVignettes(package = "Demo")
 I recommend including instructions like these in any package `README.md` file to tell users how to view your vignette. 
 
 ---
+layout: false
+class: inverse
+
+.sectionhead[Importing other packages]
+---
+# Importing other packages
+
+Many of you may want to use the `%>%` operator or other functions from other packages in your package.
+
+Since the `%>%` operator is special, the best for you to make sure that anyone installing your package will be able to use it is to set your working directory to the package directory and run the line `usethis::use_pipe()`.
+
+---
+# Importing other packages
+
+If you are using other packages (ex. `dplyr` and `tidyr`), you will want to add them to your documentation using the `@import` tag:
+
+```{r, eval = F}
+#' Title
+#'
+#' Description
+#'
+#' @param ...
+#' @return ...
+#'
+#' @import dplyr
+#'
+#' @export
+#'
+#' @examples
+#' ....
+my_function <- function() {
+  
+}
+```
+
+---
+# Importing other packages
+
+You should also edit your `DESCRIPTION` file;
+
+```{r, eval = F}
+Package: mypackage
+Title: What The Package Does (one line, title case required)
+Version: 0.1
+Authors@R: person("First", "Last", email = "first.last@example.com",
+                  role = c("aut", "cre"))
+Description: What the package does (one paragraph)
+Depends: R (>= 3.1.0)
+License: What license is it under?
+Imports:
+    tidyverse,
+    ggplot2
+```
+---
+
+
+layout: false
+class: inverse
+
+.sectionhead[Automated package testing]
+---
+
+# Step 8: Set up tests in your package (*)
+
+1. Within your console, enter `usethis::use_testthat()`. This will:
+  * Create a `tests/testthat` directory for storing your tests
+  * Adds `testthat` to the `Suggests` field in `DESCRIPTION`
+  * Creates `tests/testthat.R` which runs your tests automatically whenever you check your package.
+2. Push your local changes to GitHub using instructions from Lecture Slide 7.
+  * Recall: Easy way - through RStudio! 
+  * Note that you may need to open and close RStudio. You probably opened this R session before you set up with git. The git panel will not show up if this is the case. If you restart RStudio, it will appear.
+
+---
+layout: true
+# Step 9: Add automated tests (*)
+---
+
+The organization of tests should match the organization of R files.
+Thus, for every `.R` file within our R folder, we should have a corresponding file within `tests/testthat`.
+
+1. Run `usethis::use_test("my_pow")`. This will automatically create and open `tests/testthat/test-my_pow.R`.
+2. Edit the test file. Let's test whether both inputs are numeric, and add a second test that it works mathematically on some example input.
+  ```{r, eval = FALSE}
+  # within test-my_pow.R
+  test_that("my_pow works mathematically", {
+      expect_equal(my_pow(2), 4)
+      expect_equal(my_pow(2, power = 3), 8)
+  })
+  
+  test_that("non-numeric input throws error", {
+      expect_error(my_pow("a string"))
+      expect_error(my_pow(2, power = "a string"))
+  })
+  ```
+3. Run `devtools::check()`. Does your code pass the checks?
+
+---
+
+Let's repeat the process with `f_to_c`.
+
+1. Run `usethis::use_test("f_to_c")`
+2. Edit the test file. Let's again test a few input values and that non-numeric input breaks.
+  ```{r, eval = FALSE}
+  # within test-f_to_c.R
+  test_that("f_to_c works mathematically", {
+      expect_equal(f_to_c(32), 0)
+      expect_equal(f_to_c(212), 100)
+  })
+  
+  test_that("non-numeric input throws error", {
+      expect_error(f_to_c("a string"))
+  })
+  ```
+3. Run `devtools::check()`. Does your code pass the checks?
+
+---
+layout: false
+
+# Structure of a test
+
+Like R scripts, I recommend you have one test file per function. You should certainly have one per file in the R folder.
+Ideally, you have only one function per R folder file, but if you have multiple functions in an R folder file, there should also be only one test file for that file.
+
+The function to create a test is `test_that`. The first argument is a human-readable string designed for *you* to be able to determine what that test is doing. If a test fails, it will tell you the string associated with the test that failed.
+The second argument is contained in curly brackets `{...}`. It uses `testthat` helper functions.
+
+```{r, eval = FALSE}
+# within test-f_to_c.R
+test_that("f_to_c works mathematically", {
+  expect_equal(f_to_c(32), 0)
+  expect_equal(f_to_c(212), 100)
+})
+
+test_that("non-numeric input throws error", {
+  expect_error(f_to_c("a string"))
+})
+```
+
+
+---
+
+# Testthat Expectations
+
+An **expectation** is the unit of testing within `test_that`.
+They tell your test what to expect, and all associated functions begin with `expect_`.
+
+* `expect_equal()`: is equal within small numerical tolerance?
+* `expect_identical()`: is exactly equal?
+* `expect_match()`: matches specified string or regular expression?
+* `expect_output()` prints specified output?
+* `expect_message()`: displays specified message?
+* `expect_warning()`: displays specified warning?
+* `expect_error()`: throws specified error?
+* `expect_is()`: output inherits from certain class?
+* `expect_false()`: returns `FALSE`?
+* `expect_true()`: returns `TRUE`?
+
+---
+
+# Testthat workflow
+
+Your workflow should be:
+
+1. Modify your code or files
+2. Test your package using `Check` or `devtools::test()`
+3. Repeat until you pass all your tests
+
+Further, anytime you find and fix a bug, you should add a test for it! 
+This will make your code more robust in future iterations.
+Remember, if it can break again, it likely will!
+Add an automated test so you don't have to debug the same things over and over!
+
+---
+
+
 class: inverse
 
 .sectionhead[Project 3!]
@@ -647,11 +822,6 @@ library(demoProject3)
 ```
 
 ---
-layout: false
-class: inverse
-
-.sectionhead[Automated package testing]
----
 
 # Step A8: Set up a GitHub Actions (*)
 
@@ -664,120 +834,6 @@ class: inverse
   
 ---
 
-# Step A9: Set up tests in your package (*)
-
-1. Within your console, enter `usethis::use_testthat()`. This will:
-  * Create a `tests/testthat` directory for storing your tests
-  * Adds `testthat` to the `Suggests` field in `DESCRIPTION`
-  * Creates `tests/testthat.R` which runs your tests automatically whenever you check your package.
-2. Push your local changes to GitHub using instructions from Lecture Slide 7.
-  * Recall: Easy way - through RStudio! 
-  * Note that you may need to open and close RStudio. You probably opened this R session before you set up with git. The git panel will not show up if this is the case. If you restart RStudio, it will appear.
-
----
-layout: true
-# Step A10: Add automated tests (*)
----
-
-The organization of tests should match the organization of R files.
-Thus, for every `.R` file within our R folder, we should have a corresponding file within `tests/testthat`.
-
-1. Run `usethis::use_test("my_pow")`. This will automatically create and open `tests/testthat/test-my_pow.R`.
-2. Edit the test file. Let's test whether both inputs are numeric, and add a second test that it works mathematically on some example input.
-  ```{r, eval = FALSE}
-  # within test-my_pow.R
-  test_that("my_pow works mathematically", {
-      expect_equal(my_pow(2), 4)
-      expect_equal(my_pow(2, power = 3), 8)
-  })
-  
-  test_that("non-numeric input throws error", {
-      expect_error(my_pow("a string"))
-      expect_error(my_pow(2, power = "a string"))
-  })
-  ```
-3. Run `devtools::check()`. Does your code pass the checks?
-
----
-
-Let's repeat the process with `f_to_c`.
-
-1. Run `usethis::use_test("f_to_c")`
-2. Edit the test file. Let's again test a few input values and that non-numeric input breaks.
-  ```{r, eval = FALSE}
-  # within test-f_to_c.R
-  test_that("f_to_c works mathematically", {
-      expect_equal(f_to_c(32), 0)
-      expect_equal(f_to_c(212), 100)
-  })
-  
-  test_that("non-numeric input throws error", {
-      expect_error(f_to_c("a string"))
-  })
-  ```
-3. Run `devtools::check()`. Does your code pass the checks?
-4. Push your changes to your remote repository on Github.
-
-Now go to your GitHub repository and click on the GitHub Action indicator. What is happening?
-
----
-layout: false
-
-# Structure of a test
-
-Like R scripts, I recommend you have one test file per function. You should certainly have one per file in the R folder.
-Ideally, you have only one function per R folder file, but if you have multiple functions in an R folder file, there should also be only one test file for that file.
-
-The function to create a test is `test_that`. The first argument is a human-readable string designed for *you* to be able to determine what that test is doing. If a test fails, it will tell you the string associated with the test that failed.
-The second argument is contained in curly brackets `{...}`. It uses `testthat` helper functions.
-
-```{r, eval = FALSE}
-# within test-f_to_c.R
-test_that("f_to_c works mathematically", {
-  expect_equal(f_to_c(32), 0)
-  expect_equal(f_to_c(212), 100)
-})
-
-test_that("non-numeric input throws error", {
-  expect_error(f_to_c("a string"))
-})
-```
-
-
----
-
-# Testthat Expectations
-
-An **expectation** is the unit of testing within `test_that`.
-They tell your test what to expect, and all associated functions begin with `expect_`.
-
-* `expect_equal()`: is equal within small numerical tolerance?
-* `expect_identical()`: is exactly equal?
-* `expect_match()`: matches specified string or regular expression?
-* `expect_output()` prints specified output?
-* `expect_message()`: displays specified message?
-* `expect_warning()`: displays specified warning?
-* `expect_error()`: throws specified error?
-* `expect_is()`: output inherits from certain class?
-* `expect_false()`: returns `FALSE`?
-* `expect_true()`: returns `TRUE`?
-
----
-
-# Testthat workflow
-
-Your workflow should be:
-
-1. Modify your code or files
-2. Test your package using `Check` or `devtools::test()`
-3. Repeat until you pass all your tests
-
-Further, anytime you find and fix a bug, you should add a test for it! 
-This will make your code more robust in future iterations.
-Remember, if it can break again, it likely will!
-Add an automated test so you don't have to debug the same things over and over!
-
----
 layout: true 
 # Step A11: Add code coverage (*)
 ---
